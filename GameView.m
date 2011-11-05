@@ -69,12 +69,8 @@
     CGContextSetFillColorWithColor(context, currentColor.CGColor);
     CGContextFillEllipseInRect(context, bounds);
     
-	[currentColor release];
 }
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

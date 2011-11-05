@@ -22,9 +22,8 @@
 }
 
 -(id)initWithAlarm:(Alarm *)alarm {
-    [super init];
+    self = [super init];
     currentAlarm = alarm;
-    [currentAlarm retain];
     return self;
 }
 
@@ -55,7 +54,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     switch(indexPath.row){
         case 0:
@@ -136,10 +135,6 @@
 }
 
 
-- (void)dealloc {
-    [currentAlarm release];
-    [super dealloc];
-}
 
 
 @end

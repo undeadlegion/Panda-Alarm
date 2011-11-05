@@ -20,7 +20,7 @@
     NSTimer *timer;
     NSTimer *vibrateTimer;
 }
-@property (nonatomic, retain) IBOutlet GameView *gameView;
+@property (nonatomic, strong) IBOutlet GameView *gameView;
 
 - (id)init; 
 - (void)screenTapped:(id)sender;

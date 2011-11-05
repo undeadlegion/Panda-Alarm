@@ -82,9 +82,6 @@
 {
     UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:title message:pushmessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alertView show];
-    if (alertView) {
-        [alertView release];
-    }
 }
 
 - (void)startGame{
@@ -159,11 +156,5 @@
 }
 
 
-- (void)dealloc {
-
-    [window release];
-    [navigationController release];
-    [super dealloc];
-}
 
 @end

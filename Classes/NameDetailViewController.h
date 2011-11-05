@@ -15,7 +15,7 @@
     Alarm *currentAlarm;
 }
 
-@property (nonatomic, retain) IBOutlet UITextField *textField;
+@property (nonatomic, strong) IBOutlet UITextField *textField;
 
 - (id)initWithAlarm:(Alarm *)alarm;
 - (IBAction)setName:(id)sender;

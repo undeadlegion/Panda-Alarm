@@ -33,21 +33,21 @@
 	self.navigationItem.leftBarButtonItem = self.editButtonItem;
 	
 	//add plus button
-	UIBarButtonItem *addButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
+	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
         target:self 
-        action:@selector(addAlarm:)]autorelease];
+        action:@selector(addAlarm:)];
     self.navigationItem.rightBarButtonItem = addButton;
     
     //show the navigation bar
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
     //set target for AlarmDetailViewController's cancel and save buttons to self
-    UIBarButtonItem *cancelButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
         target:self 
-        action:@selector(cancelFromAlarmDetailViewController:)]autorelease];
-	UIBarButtonItem *saveButton = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave
+        action:@selector(cancelFromAlarmDetailViewController:)];
+	UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave
                                                                                  target:self 
-                                                                                 action:@selector(savedAlarm:)] autorelease];
+                                                                                 action:@selector(savedAlarm:)];
     
     //initialize detail view controller
     alarmDetailViewController = [[AlarmDetailViewController alloc] init];
@@ -69,7 +69,6 @@
 
 - (void)initList:(NSMutableArray *)list {
     alarmsList = list;
-    [alarmsList retain];
 }
 
 
@@ -127,7 +126,6 @@
 	time.text = [formatter stringFromDate:alarm.date];
 //time.textColor = [UIColor whiteColor];
     
-    [formatter release];
     
     //update am/pm
     amPm = (UILabel *)[cell viewWithTag:5];
@@ -279,7 +277,6 @@
     self.selectedAlarm = [[Alarm alloc] init];
         
     //retain count = 1
-    [selectedAlarm release];
 
     //pass it to the view controller
     alarmDetailViewController.currentAlarm = selectedAlarm;
@@ -328,9 +325,7 @@
 
 - (void)dealloc {
     NSLog(@"RootViewController Dealloc Called");
-    [alarmDetailViewController release];
     
-    [super dealloc];
 }
 
 @end

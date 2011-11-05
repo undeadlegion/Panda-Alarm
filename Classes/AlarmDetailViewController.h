@@ -28,15 +28,15 @@
 	UITableViewCell *nameCell;
 }
 
-@property (nonatomic, retain) IBOutlet UITableView *myTableView;
-@property (nonatomic, retain) IBOutlet UIDatePicker *datePicker;
-@property (nonatomic, retain) Alarm *currentAlarm;
+@property (nonatomic, strong) IBOutlet UITableView *myTableView;
+@property (nonatomic, strong) IBOutlet UIDatePicker *datePicker;
+@property (nonatomic, strong) Alarm *currentAlarm;
 
 //cells
-@property (nonatomic, retain) UITableViewCell *repeatCell;
-@property (nonatomic, retain) UITableViewCell *soundCell;
-@property (nonatomic, retain) UITableViewCell *snoozeCell;
-@property (nonatomic, retain) UITableViewCell *nameCell;
+@property (nonatomic, strong) UITableViewCell *repeatCell;
+@property (nonatomic, strong) UITableViewCell *soundCell;
+@property (nonatomic, strong) UITableViewCell *snoozeCell;
+@property (nonatomic, strong) UITableViewCell *nameCell;
 
 
 - (void) updateAlarm;

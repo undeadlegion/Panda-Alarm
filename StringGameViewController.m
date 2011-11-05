@@ -23,10 +23,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -123,7 +119,6 @@
     }
     alphaNumericLabel.text =  [self genRandStringLength:stringLength];
     timer = [NSTimer scheduledTimerWithTimeInterval:timerInterval target:self selector:@selector(timerFire:) userInfo:nil repeats:NO];
-    [timer retain];
 }
 
 - (void)timerFire:(NSTimer *)theTimer{
@@ -131,14 +126,12 @@
         alphaNumericLabel.hidden = YES;
         textField.hidden = NO;
     }
-    [timer release];
     timer = nil;
 }
 
 - (IBAction)nextWord:(id)sender{
     if(timer != nil){
         [timer invalidate];
-        [timer release];
         timer = nil;
     }
     [self startGame];

@@ -25,8 +25,8 @@
     AlarmDetailViewController * alarmDetailViewController;
 }
 
-@property (nonatomic, retain) NSMutableArray *alarmsList;
-@property (nonatomic, retain) Alarm *selectedAlarm;
+@property (nonatomic, strong) NSMutableArray *alarmsList;
+@property (nonatomic, strong) Alarm *selectedAlarm;
 @property (nonatomic, copy) Alarm *backedUpAlarm;
 
 

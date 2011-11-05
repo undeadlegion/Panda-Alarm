@@ -30,7 +30,7 @@
 }
 
 - (id)init{
-    [super init];
+    self = [super init];
     self.on = YES;
     self.snooze = YES;
     
@@ -69,7 +69,6 @@
     if([string isEqualToString:@"Sat Sun "])
         [string setString:@"Weekends"];
     
-    [string autorelease];
     return string;
 }
 
@@ -147,7 +146,6 @@
         [[UIApplication sharedApplication] cancelLocalNotification:notification];
         NSLog(@"Cancelled Alarm");
     }
-    [notification release];
     notification = nil;
 }
 
@@ -171,14 +169,14 @@
         on = [aDecoder decodeBoolForKey:@"On"];
         snooze = [aDecoder decodeBoolForKey:@"Snooze"];
 
-        name = [[aDecoder decodeObjectForKey:@"Name"] retain];
-        sound = [[aDecoder decodeObjectForKey:@"Sound"] retain];
-        date = [[aDecoder decodeObjectForKey:@"Date"] retain];
+        name = [aDecoder decodeObjectForKey:@"Name"];
+        sound = [aDecoder decodeObjectForKey:@"Sound"];
+        date = [aDecoder decodeObjectForKey:@"Date"];
     
-        selectedDaysOfTheWeek = [[aDecoder decodeObjectForKey:@"Selected Days"] retain];
-        daysOfTheWeek = [[aDecoder decodeObjectForKey:@"Days of the Week"] retain];
-        notification = [[aDecoder decodeObjectForKey:@"Notification"] retain];
-        alarmId = [[aDecoder decodeObjectForKey:@"Id"] retain];
+        selectedDaysOfTheWeek = [aDecoder decodeObjectForKey:@"Selected Days"];
+        daysOfTheWeek = [aDecoder decodeObjectForKey:@"Days of the Week"];
+        notification = [aDecoder decodeObjectForKey:@"Notification"];
+        alarmId = [aDecoder decodeObjectForKey:@"Id"];
     }
     return self;
 }
@@ -226,18 +224,6 @@
 #pragma mark -
 #pragma mark Memory management
 
-- (void)dealloc{
-    [selectedDaysOfTheWeek release];
-    [daysOfTheWeek release];
-    
-    [name release];
-    [sound release];
-    [date release];
-    
-    [notification release];
-    
-    [super dealloc];
-}
 
 @end
 

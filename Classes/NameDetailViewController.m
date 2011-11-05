@@ -14,9 +14,8 @@
 @synthesize textField;
 
 - (id) initWithAlarm:(Alarm *)alarm{
-    [super init];
+    self = [super init];
     currentAlarm = alarm;
-    [currentAlarm retain];
     return self;
 }
 
@@ -55,10 +54,6 @@
 }
 
 
-- (void)dealloc {
-    [currentAlarm release];
-    [super dealloc];
-}
 
 
 @end

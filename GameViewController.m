@@ -108,7 +108,6 @@
              @selector(timerFireMethod:) userInfo:nil repeats:YES];
     NSRunLoop *currentRunLoop = [NSRunLoop currentRunLoop];
     [currentRunLoop addTimer:timer forMode:NSDefaultRunLoopMode];
-    [timer release];
 }
              
 - (void)timerFireMethod: (NSTimer *)theTimer{
@@ -131,9 +130,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

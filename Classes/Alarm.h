@@ -32,10 +32,10 @@
 @property (nonatomic, copy) NSString *sound;
 @property (nonatomic, copy) NSDate *date;
 
-@property (nonatomic, retain) NSMutableDictionary *selectedDaysOfTheWeek;
-@property (nonatomic, retain) NSArray *daysOfTheWeek;
+@property (nonatomic, strong) NSMutableDictionary *selectedDaysOfTheWeek;
+@property (nonatomic, strong) NSArray *daysOfTheWeek;
 
-@property (nonatomic, retain) UILocalNotification *notification;
+@property (nonatomic, strong) UILocalNotification *notification;
 @property (nonatomic, copy) NSString *alarmId;
 
 

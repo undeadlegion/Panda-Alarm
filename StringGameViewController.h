@@ -16,10 +16,10 @@
 }
 
 - (NSString *)genRandStringLength:(NSUInteger)len;
-@property (nonatomic, retain) IBOutlet UILabel *alphaNumericLabel;
-@property (nonatomic, retain) IBOutlet UITextField *textField;
-@property (nonatomic, retain) IBOutlet UILabel *levelLabel;
-@property (nonatomic, retain) IBOutlet UIButton *giveUpButton;
+@property (nonatomic, strong) IBOutlet UILabel *alphaNumericLabel;
+@property (nonatomic, strong) IBOutlet UITextField *textField;
+@property (nonatomic, strong) IBOutlet UILabel *levelLabel;
+@property (nonatomic, strong) IBOutlet UIButton *giveUpButton;
 
 - (IBAction)textTyped:(id)sender;
 - (IBAction)nextWord:(id)sender;

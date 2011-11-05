@@ -55,7 +55,7 @@
 }
 
 - (id)init{
-    [super init];
+    self = [super init];
 	//initialize alarm for this view
 	currentAlarm = [[Alarm alloc] init];
     [self initCells];
@@ -102,7 +102,6 @@
 	
 	//push new view onto the stack
 	[self.navigationController pushViewController:viewController animated:YES];
-    [viewController release];
 }
 
 #pragma mark -
@@ -179,13 +178,7 @@
 - (void)dealloc {
     NSLog(@"Alarm Detail View Controller Dealloc Called");
     
-    [currentAlarm release];
-    [repeatCell release];
-    [soundCell release];
-    [snoozeCell release];
-    [nameCell   release];
     
-    [super dealloc];
 }
 
 
