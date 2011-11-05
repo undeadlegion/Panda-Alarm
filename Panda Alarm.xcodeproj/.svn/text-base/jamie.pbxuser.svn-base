@@ -1,0 +1,261 @@
+// !$*UTF8*$!
+{
+	7D078592120BAAAE008C6269 /* Alarm.m */ = {
+		uiCtxt = {
+			sepNavFolds = "{\n    c =     (\n                {\n            l = \"(id)firstObject\";\n            r = \"{1204, 19}\";\n            s = 1;\n        },\n                {\n            l = \", ...\";\n            r = \"{1223, 9}\";\n            s = 1;\n        }\n    );\n    r = \"{0, 3367}\";\n    s = 0;\n}";
+			sepNavIntBoundsRect = "{{0, 0}, {892, 1456}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1001}";
+		};
+	};
+	7D078594120BAAC0008C6269 /* Alarm.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {892, 494}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 825}";
+		};
+	};
+	7D6A76AF121B96D5001CE7B3 /* Unit Tests */ = {
+		activeExec = 0;
+	};
+	7D6A76C2121B9771001CE7B3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7D078592120BAAAE008C6269 /* Alarm.m */;
+		name = "Alarm.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1001;
+		vrLoc = 0;
+	};
+	7D6A76D2121B9887001CE7B3 /* Tests.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1174, 464}}";
+			sepNavSelRange = "{739, 0}";
+			sepNavVisRange = "{0, 804}";
+		};
+	};
+	7D6A76D3121B9887001CE7B3 /* Tests.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {892, 741}}";
+			sepNavSelRange = "{138, 0}";
+			sepNavVisRange = "{0, 872}";
+		};
+	};
+	7D6A76D7121B990E001CE7B3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7D078594120BAAC0008C6269 /* Alarm.h */;
+		name = "Alarm.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 825;
+		vrLoc = 0;
+	};
+	7D6A76D8121B990E001CE7B3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7DA017E3120A80F100AA1FCA /* Panda_AlarmAppDelegate.h */;
+		name = "Panda_AlarmAppDelegate.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 643;
+		vrLoc = 0;
+	};
+	7D6A76D9121B990E001CE7B3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7D6A76D2121B9887001CE7B3 /* Tests.h */;
+		name = "Tests.h: 25";
+		rLen = 0;
+		rLoc = 739;
+		rType = 0;
+		vrLen = 804;
+		vrLoc = 0;
+	};
+	7D6A76E8121B9937001CE7B3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7D6A76D3121B9887001CE7B3 /* Tests.m */;
+		name = "Tests.m: 8";
+		rLen = 0;
+		rLoc = 138;
+		rType = 0;
+		vrLen = 405;
+		vrLoc = 0;
+	};
+	7D77AF03120A844100D34282 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	7D8151BD1219C67A006E9BA4 /* ___FILEBASENAME___.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = "___FILEBASENAME___.h";
+		path = "/Xcode4/Library/Xcode/Templates/File Templates/Cocoa/Objective-C test case class.xctemplate/___FILEBASENAME___.h";
+		sourceTree = "<absolute>";
+	};
+	7DA017C6120A80F100AA1FCA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 7DA017D5120A80F100AA1FCA /* Panda Alarm */;
+		activeTarget = 7DA017D2120A80F100AA1FCA /* Panda Alarm */;
+		addToTargets = (
+			7D6A76AF121B96D5001CE7B3 /* Unit Tests */,
+		);
+		codeSenseManager = 7DA017CA120A80F100AA1FCA /* Code sense */;
+		executables = (
+			7DA017D5120A80F100AA1FCA /* Panda Alarm */,
+		);
+		ignoreBreakpointsInProjectsDict = {
+		};
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					714,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					674,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 304973538;
+			PBXWorkspaceStateSaveDate = 304973538;
+		};
+		perUserProjectItems = {
+			7D6A76C2121B9771001CE7B3 /* PBXTextBookmark */ = 7D6A76C2121B9771001CE7B3 /* PBXTextBookmark */;
+			7D6A76D7121B990E001CE7B3 /* PBXTextBookmark */ = 7D6A76D7121B990E001CE7B3 /* PBXTextBookmark */;
+			7D6A76D8121B990E001CE7B3 /* PBXTextBookmark */ = 7D6A76D8121B990E001CE7B3 /* PBXTextBookmark */;
+			7D6A76D9121B990E001CE7B3 /* PBXTextBookmark */ = 7D6A76D9121B990E001CE7B3 /* PBXTextBookmark */;
+			7D6A76E8121B9937001CE7B3 /* PBXTextBookmark */ = 7D6A76E8121B9937001CE7B3 /* PBXTextBookmark */;
+			7DF2A8A71219C68E003F1D9A /* PBXTextBookmark */ = 7DF2A8A71219C68E003F1D9A /* PBXTextBookmark */;
+			7DF8C2C51219C38200292DFE /* PBXTextBookmark */ = 7DF8C2C51219C38200292DFE /* PBXTextBookmark */;
+			7DFDB62D122D870500AF44A3 /* PBXTextBookmark */ = 7DFDB62D122D870500AF44A3 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 7D77AF03120A844100D34282 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	7DA017CA120A80F100AA1FCA /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	7DA017D2120A80F100AA1FCA /* Panda Alarm */ = {
+		activeExec = 0;
+		executables = (
+			7DA017D5120A80F100AA1FCA /* Panda Alarm */,
+		);
+	};
+	7DA017D5120A80F100AA1FCA /* Panda Alarm */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = "Panda Alarm";
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	7DA017E3120A80F100AA1FCA /* Panda_AlarmAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {892, 464}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 643}";
+		};
+	};
+	7DF2A8A71219C68E003F1D9A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7D8151BD1219C67A006E9BA4 /* ___FILEBASENAME___.h */;
+		name = "___FILEBASENAME___.h: 13";
+		rLen = 9;
+		rLoc = 280;
+		rType = 0;
+		vrLen = 302;
+		vrLoc = 0;
+	};
+	7DF8C2C51219C38200292DFE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7DF8C2C61219C38200292DFE /* ___FILEBASENAME___.m */;
+		name = "___FILEBASENAME___.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 411;
+		vrLoc = 0;
+	};
+	7DF8C2C61219C38200292DFE /* ___FILEBASENAME___.m */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.objc;
+		name = "___FILEBASENAME___.m";
+		path = "/Xcode4/Library/Xcode/Templates/File Templates/Cocoa/Objective-C test case class.xctemplate/___FILEBASENAME___.m";
+		sourceTree = "<absolute>";
+	};
+	7DFDB62D122D870500AF44A3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7D6A76D3121B9887001CE7B3 /* Tests.m */;
+		name = "Tests.m: 8";
+		rLen = 0;
+		rLoc = 138;
+		rType = 0;
+		vrLen = 872;
+		vrLoc = 0;
+	};
+}

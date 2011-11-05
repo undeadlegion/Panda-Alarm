@@ -1,0 +1,529 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7D078593120BAAAE008C6269 /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D078592120BAAAE008C6269 /* Alarm.m */; };
+		7D26497512DF98DA00FCCC65 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D26497412DF98DA00FCCC65 /* AudioToolbox.framework */; };
+		7D348CBD12D9638500319DEC /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D348CBC12D9638500319DEC /* MediaPlayer.framework */; };
+		7D6295DF120D4D7B00C7C17F /* AlarmsListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D6295DE120D4D7B00C7C17F /* AlarmsListCell.xib */; };
+		7D6295F9120DB47000C7C17F /* AlarmDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6295F7120DB47000C7C17F /* AlarmDetailViewController.m */; };
+		7D6295FA120DB47000C7C17F /* AlarmDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D6295F8120DB47000C7C17F /* AlarmDetailViewController.xib */; };
+		7D6A05FF12D9D0B300B5519E /* sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 7D6A05FE12D9D0B300B5519E /* sound.caf */; };
+		7D6A060012D9D10900B5519E /* sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 7D6A05FE12D9D0B300B5519E /* sound.caf */; };
+		7D6A76B8121B973D001CE7B3 /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D078592120BAAAE008C6269 /* Alarm.m */; };
+		7D6A76D4121B9887001CE7B3 /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6A76D3121B9887001CE7B3 /* Tests.m */; };
+		7D72E53812D8B69C0032DA66 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D72E53712D8B69C0032DA66 /* GameView.m */; };
+		7D86D664130DAF0000F0249A /* StringGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D86D662130DAEFF00F0249A /* StringGameViewController.m */; };
+		7D86D665130DAF0000F0249A /* StringGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D86D663130DAEFF00F0249A /* StringGameViewController.xib */; };
+		7D951E4A12DA787200354CCD /* sound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 7D951E4912DA787200354CCD /* sound.aiff */; };
+		7DA017D7120A80F100AA1FCA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA017D6120A80F100AA1FCA /* UIKit.framework */; };
+		7DA017D9120A80F100AA1FCA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA017D8120A80F100AA1FCA /* Foundation.framework */; };
+		7DA017DB120A80F100AA1FCA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA017DA120A80F100AA1FCA /* CoreGraphics.framework */; };
+		7DA017E2120A80F100AA1FCA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA017E1120A80F100AA1FCA /* main.m */; };
+		7DA017E5120A80F100AA1FCA /* Panda_AlarmAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA017E4120A80F100AA1FCA /* Panda_AlarmAppDelegate.m */; };
+		7DA017EB120A80F100AA1FCA /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA017EA120A80F100AA1FCA /* RootViewController.m */; };
+		7DB8567C13108DA800983307 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB8567B13108DA800983307 /* AVFoundation.framework */; };
+		7DC527C2131F6C9F006A9DD1 /* panda.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DDFF085131F59270021E79C /* panda.png */; };
+		7DCA419E12D854C500DA9EE4 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCA419C12D854C500DA9EE4 /* GameViewController.m */; };
+		7DCA419F12D854C500DA9EE4 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DCA419D12D854C500DA9EE4 /* GameViewController.xib */; };
+		7DD1FF3D121BF5D10032C7E1 /* NameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1FF3B121BF5D10032C7E1 /* NameDetailViewController.m */; };
+		7DD1FF3E121BF5D10032C7E1 /* NameDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DD1FF3C121BF5D10032C7E1 /* NameDetailViewController.xib */; };
+		7DD36406120EBA2A008EF32A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DD36405120EBA2A008EF32A /* MainWindow.xib */; };
+		7DD36409120EBA32008EF32A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DD36407120EBA32008EF32A /* InfoPlist.strings */; };
+		7DD3640A120EBA32008EF32A /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DD36408120EBA32008EF32A /* RootViewController.xib */; };
+		7DF913FA1210788D002C5C9C /* RepeatDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF913F91210788D002C5C9C /* RepeatDetailViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7D6A76B5121B9721001CE7B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DA017C6120A80F100AA1FCA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D6A76AF121B96D5001CE7B3;
+			remoteInfo = "Unit Tests";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7D078592120BAAAE008C6269 /* Alarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alarm.m; sourceTree = "<group>"; };
+		7D078594120BAAC0008C6269 /* Alarm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alarm.h; sourceTree = "<group>"; };
+		7D26497412DF98DA00FCCC65 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		7D348CBC12D9638500319DEC /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		7D6295DE120D4D7B00C7C17F /* AlarmsListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AlarmsListCell.xib; path = Classes/AlarmsListCell.xib; sourceTree = "<group>"; };
+		7D6295F6120DB47000C7C17F /* AlarmDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmDetailViewController.h; sourceTree = "<group>"; };
+		7D6295F7120DB47000C7C17F /* AlarmDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmDetailViewController.m; sourceTree = "<group>"; };
+		7D6295F8120DB47000C7C17F /* AlarmDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AlarmDetailViewController.xib; path = Classes/AlarmDetailViewController.xib; sourceTree = "<group>"; };
+		7D6A05FE12D9D0B300B5519E /* sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = sound.caf; path = Classes/sound.caf; sourceTree = "<group>"; };
+		7D6A76B0121B96D5001CE7B3 /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D6A76B1121B96D5001CE7B3 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
+		7D6A76D2121B9887001CE7B3 /* Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tests.h; sourceTree = "<group>"; };
+		7D6A76D3121B9887001CE7B3 /* Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
+		7D72E53612D8B69C0032DA66 /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameView.h; path = ../GameView.h; sourceTree = "<group>"; };
+		7D72E53712D8B69C0032DA66 /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameView.m; path = ../GameView.m; sourceTree = "<group>"; };
+		7D86D661130DAEFF00F0249A /* StringGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StringGameViewController.h; path = ../StringGameViewController.h; sourceTree = "<group>"; };
+		7D86D662130DAEFF00F0249A /* StringGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StringGameViewController.m; path = ../StringGameViewController.m; sourceTree = "<group>"; };
+		7D86D663130DAEFF00F0249A /* StringGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StringGameViewController.xib; sourceTree = "<group>"; };
+		7D951E4912DA787200354CCD /* sound.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = sound.aiff; path = Classes/sound.aiff; sourceTree = "<group>"; };
+		7DA017D3120A80F100AA1FCA /* Panda Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Panda Alarm.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7DA017D6120A80F100AA1FCA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7DA017D8120A80F100AA1FCA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7DA017DA120A80F100AA1FCA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7DA017DC120A80F100AA1FCA /* Panda_Alarm-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Panda_Alarm-Info.plist"; sourceTree = "<group>"; };
+		7DA017DD120A80F100AA1FCA /* Panda_Alarm_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Panda_Alarm_Prefix.pch; sourceTree = "<group>"; };
+		7DA017E1120A80F100AA1FCA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7DA017E3120A80F100AA1FCA /* Panda_AlarmAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Panda_AlarmAppDelegate.h; sourceTree = "<group>"; };
+		7DA017E4120A80F100AA1FCA /* Panda_AlarmAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Panda_AlarmAppDelegate.m; sourceTree = "<group>"; };
+		7DA017E9120A80F100AA1FCA /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		7DA017EA120A80F100AA1FCA /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		7DB8567B13108DA800983307 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7DCA419B12D854C500DA9EE4 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameViewController.h; path = ../GameViewController.h; sourceTree = "<group>"; };
+		7DCA419C12D854C500DA9EE4 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameViewController.m; path = ../GameViewController.m; sourceTree = "<group>"; };
+		7DCA419D12D854C500DA9EE4 /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
+		7DD1FF3A121BF5D10032C7E1 /* NameDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameDetailViewController.h; sourceTree = "<group>"; };
+		7DD1FF3B121BF5D10032C7E1 /* NameDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameDetailViewController.m; sourceTree = "<group>"; };
+		7DD1FF3C121BF5D10032C7E1 /* NameDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NameDetailViewController.xib; path = Classes/NameDetailViewController.xib; sourceTree = "<group>"; };
+		7DD36405120EBA2A008EF32A /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = Classes/MainWindow.xib; sourceTree = "<group>"; };
+		7DD36407120EBA32008EF32A /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = Classes/InfoPlist.strings; sourceTree = "<group>"; };
+		7DD36408120EBA32008EF32A /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RootViewController.xib; path = Classes/RootViewController.xib; sourceTree = "<group>"; };
+		7DDFF085131F59270021E79C /* panda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panda.png; sourceTree = "<group>"; };
+		7DF8C2B11219BCC000292DFE /* Panda Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Panda Test-Info.plist"; sourceTree = "<group>"; };
+		7DF913F81210788D002C5C9C /* RepeatDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepeatDetailViewController.h; sourceTree = "<group>"; };
+		7DF913F91210788D002C5C9C /* RepeatDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepeatDetailViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7D6A76AD121B96D5001CE7B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7DA017D0120A80F100AA1FCA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DB8567C13108DA800983307 /* AVFoundation.framework in Frameworks */,
+				7D26497512DF98DA00FCCC65 /* AudioToolbox.framework in Frameworks */,
+				7DA017D7120A80F100AA1FCA /* UIKit.framework in Frameworks */,
+				7DA017D9120A80F100AA1FCA /* Foundation.framework in Frameworks */,
+				7DA017DB120A80F100AA1FCA /* CoreGraphics.framework in Frameworks */,
+				7D348CBD12D9638500319DEC /* MediaPlayer.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7D6A76B7121B9725001CE7B3 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				7D6A76D2121B9887001CE7B3 /* Tests.h */,
+				7D6A76D3121B9887001CE7B3 /* Tests.m */,
+			);
+			name = Tests;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		7DA017C4120A80F100AA1FCA = {
+			isa = PBXGroup;
+			children = (
+				7D6A76B7121B9725001CE7B3 /* Tests */,
+				7DA017CB120A80F100AA1FCA /* Classes */,
+				7DA017CC120A80F100AA1FCA /* Other Sources */,
+				7DA017CD120A80F100AA1FCA /* Resources */,
+				7DA017CE120A80F100AA1FCA /* Frameworks */,
+				7DA017D4120A80F100AA1FCA /* Products */,
+				7DF8C2B11219BCC000292DFE /* Panda Test-Info.plist */,
+				7D6A76B1121B96D5001CE7B3 /* Unit Tests-Info.plist */,
+			);
+			sourceTree = "<group>";
+		};
+		7DA017CB120A80F100AA1FCA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7D078594120BAAC0008C6269 /* Alarm.h */,
+				7D078592120BAAAE008C6269 /* Alarm.m */,
+				7DA017E3120A80F100AA1FCA /* Panda_AlarmAppDelegate.h */,
+				7DA017E4120A80F100AA1FCA /* Panda_AlarmAppDelegate.m */,
+				7DA017E9120A80F100AA1FCA /* RootViewController.h */,
+				7DA017EA120A80F100AA1FCA /* RootViewController.m */,
+				7D6295F6120DB47000C7C17F /* AlarmDetailViewController.h */,
+				7D6295F7120DB47000C7C17F /* AlarmDetailViewController.m */,
+				7DF913F81210788D002C5C9C /* RepeatDetailViewController.h */,
+				7DF913F91210788D002C5C9C /* RepeatDetailViewController.m */,
+				7DD1FF3A121BF5D10032C7E1 /* NameDetailViewController.h */,
+				7DD1FF3B121BF5D10032C7E1 /* NameDetailViewController.m */,
+				7DCA419B12D854C500DA9EE4 /* GameViewController.h */,
+				7DCA419C12D854C500DA9EE4 /* GameViewController.m */,
+				7D72E53612D8B69C0032DA66 /* GameView.h */,
+				7D72E53712D8B69C0032DA66 /* GameView.m */,
+				7D86D661130DAEFF00F0249A /* StringGameViewController.h */,
+				7D86D662130DAEFF00F0249A /* StringGameViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		7DA017CC120A80F100AA1FCA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				7DA017DD120A80F100AA1FCA /* Panda_Alarm_Prefix.pch */,
+				7DA017E1120A80F100AA1FCA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		7DA017CD120A80F100AA1FCA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7D951E4912DA787200354CCD /* sound.aiff */,
+				7D6A05FE12D9D0B300B5519E /* sound.caf */,
+				7DD36407120EBA32008EF32A /* InfoPlist.strings */,
+				7DA017DC120A80F100AA1FCA /* Panda_Alarm-Info.plist */,
+				7DDFF085131F59270021E79C /* panda.png */,
+				7DD36405120EBA2A008EF32A /* MainWindow.xib */,
+				7DD36408120EBA32008EF32A /* RootViewController.xib */,
+				7D6295DE120D4D7B00C7C17F /* AlarmsListCell.xib */,
+				7D6295F8120DB47000C7C17F /* AlarmDetailViewController.xib */,
+				7DD1FF3C121BF5D10032C7E1 /* NameDetailViewController.xib */,
+				7DCA419D12D854C500DA9EE4 /* GameViewController.xib */,
+				7D86D663130DAEFF00F0249A /* StringGameViewController.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		7DA017CE120A80F100AA1FCA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7DB8567B13108DA800983307 /* AVFoundation.framework */,
+				7D348CBC12D9638500319DEC /* MediaPlayer.framework */,
+				7D26497412DF98DA00FCCC65 /* AudioToolbox.framework */,
+				7DA017D6120A80F100AA1FCA /* UIKit.framework */,
+				7DA017D8120A80F100AA1FCA /* Foundation.framework */,
+				7DA017DA120A80F100AA1FCA /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7DA017D4120A80F100AA1FCA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7DA017D3120A80F100AA1FCA /* Panda Alarm.app */,
+				7D6A76B0121B96D5001CE7B3 /* Unit Tests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7D6A76AF121B96D5001CE7B3 /* Unit Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D6A76B4121B96D5001CE7B3 /* Build configuration list for PBXNativeTarget "Unit Tests" */;
+			buildPhases = (
+				7D6A76AB121B96D5001CE7B3 /* Resources */,
+				7D6A76AC121B96D5001CE7B3 /* Sources */,
+				7D6A76AD121B96D5001CE7B3 /* Frameworks */,
+				7D6A76AE121B96D5001CE7B3 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Unit Tests";
+			productName = "Unit Tests";
+			productReference = 7D6A76B0121B96D5001CE7B3 /* Unit Tests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		7DA017D2120A80F100AA1FCA /* Panda Alarm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7DA017F1120A80F100AA1FCA /* Build configuration list for PBXNativeTarget "Panda Alarm" */;
+			buildPhases = (
+				7DA017CF120A80F100AA1FCA /* Sources */,
+				7DA017D0120A80F100AA1FCA /* Frameworks */,
+				7DA017D1120A80F100AA1FCA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7D6A76B6121B9721001CE7B3 /* PBXTargetDependency */,
+			);
+			name = "Panda Alarm";
+			productName = "Panda Alarm";
+			productReference = 7DA017D3120A80F100AA1FCA /* Panda Alarm.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7DA017C6120A80F100AA1FCA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 7DA017C9120A80F100AA1FCA /* Build configuration list for PBXProject "Panda Alarm" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DA017C4120A80F100AA1FCA;
+			productRefGroup = 7DA017D4120A80F100AA1FCA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7DA017D2120A80F100AA1FCA /* Panda Alarm */,
+				7D6A76AF121B96D5001CE7B3 /* Unit Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7D6A76AB121B96D5001CE7B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D6A05FF12D9D0B300B5519E /* sound.caf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7DA017D1120A80F100AA1FCA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D6A060012D9D10900B5519E /* sound.caf in Resources */,
+				7D6295DF120D4D7B00C7C17F /* AlarmsListCell.xib in Resources */,
+				7D6295FA120DB47000C7C17F /* AlarmDetailViewController.xib in Resources */,
+				7DD36406120EBA2A008EF32A /* MainWindow.xib in Resources */,
+				7DD36409120EBA32008EF32A /* InfoPlist.strings in Resources */,
+				7DD3640A120EBA32008EF32A /* RootViewController.xib in Resources */,
+				7DD1FF3E121BF5D10032C7E1 /* NameDetailViewController.xib in Resources */,
+				7DCA419F12D854C500DA9EE4 /* GameViewController.xib in Resources */,
+				7D951E4A12DA787200354CCD /* sound.aiff in Resources */,
+				7D86D665130DAF0000F0249A /* StringGameViewController.xib in Resources */,
+				7DC527C2131F6C9F006A9DD1 /* panda.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7D6A76AE121B96D5001CE7B3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7D6A76AC121B96D5001CE7B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D6A76B8121B973D001CE7B3 /* Alarm.m in Sources */,
+				7D6A76D4121B9887001CE7B3 /* Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7DA017CF120A80F100AA1FCA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DA017E2120A80F100AA1FCA /* main.m in Sources */,
+				7DA017E5120A80F100AA1FCA /* Panda_AlarmAppDelegate.m in Sources */,
+				7DA017EB120A80F100AA1FCA /* RootViewController.m in Sources */,
+				7D078593120BAAAE008C6269 /* Alarm.m in Sources */,
+				7D6295F9120DB47000C7C17F /* AlarmDetailViewController.m in Sources */,
+				7DF913FA1210788D002C5C9C /* RepeatDetailViewController.m in Sources */,
+				7DD1FF3D121BF5D10032C7E1 /* NameDetailViewController.m in Sources */,
+				7DCA419E12D854C500DA9EE4 /* GameViewController.m in Sources */,
+				7D72E53812D8B69C0032DA66 /* GameView.m in Sources */,
+				7D86D664130DAF0000F0249A /* StringGameViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7D6A76B6121B9721001CE7B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7D6A76AF121B96D5001CE7B3 /* Unit Tests */;
+			targetProxy = 7D6A76B5121B9721001CE7B3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7D6A76B2121B96D5001CE7B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "Unit Tests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					SenTestingKit,
+					"-framework",
+					UIKit,
+				);
+				PRODUCT_NAME = "Unit Tests";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		7D6A76B3121B96D5001CE7B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "Unit Tests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					SenTestingKit,
+					"-framework",
+					UIKit,
+				);
+				PRODUCT_NAME = "Unit Tests";
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		7DA017EF120A80F100AA1FCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7DA017F0120A80F100AA1FCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		7DA017F2120A80F100AA1FCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Panda_Alarm_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "Panda_Alarm-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "Panda Alarm";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7DA017F3120A80F100AA1FCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Panda_Alarm_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "Panda_Alarm-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "Panda Alarm";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7D6A76B4121B96D5001CE7B3 /* Build configuration list for PBXNativeTarget "Unit Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D6A76B2121B96D5001CE7B3 /* Debug */,
+				7D6A76B3121B96D5001CE7B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7DA017C9120A80F100AA1FCA /* Build configuration list for PBXProject "Panda Alarm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7DA017EF120A80F100AA1FCA /* Debug */,
+				7DA017F0120A80F100AA1FCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7DA017F1120A80F100AA1FCA /* Build configuration list for PBXNativeTarget "Panda Alarm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7DA017F2120A80F100AA1FCA /* Debug */,
+				7DA017F3120A80F100AA1FCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7DA017C6120A80F100AA1FCA /* Project object */;
+}
