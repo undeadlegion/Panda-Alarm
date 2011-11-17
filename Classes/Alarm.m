@@ -11,9 +11,9 @@
 
 @implementation Alarm
 
-@synthesize sound, snooze, name, date, on;
-@synthesize selectedDaysOfTheWeek, daysOfTheWeek;
-@synthesize notification, alarmId;
+//@synthesize sound, snooze, name, date, on;
+//@synthesize selectedDaysOfTheWeek, daysOfTheWeek;
+//@synthesize notification, alarmId;
 
 #pragma mark -
 #pragma mark Initialization
@@ -31,13 +31,18 @@
 
 - (id)init{
     self = [super init];
-    self.on = YES;
-    self.snooze = YES;
+    on = YES;
+    snoozeOn = YES;
+    reminderOn = NO;
+    pandaOn = NO;
     
-    self.name = @"Alarm";
-    self.sound = @"Xylophone";
-    self.date = [NSDate date];
-    self.alarmId = [self.date description];
+    numberOfAlarms = 1;
+    repeatInterval = 1;
+    
+    name = @"Alarm";
+    sound = @"Xylophone";
+    date = [NSDate date];
+    alarmId = [self.date description];
         
     [self initSelectedDaysOfTheWeek];
     daysOfTheWeek = [[NSArray alloc] 
@@ -88,6 +93,7 @@
     
     self.date = [calendar dateFromComponents:alarmHM];
 }
+
 - (void)scheduleNotification {
     NSLog(@"[Scheduling Alarm]");
     notification = [[UILocalNotification alloc] init];
@@ -118,24 +124,27 @@
             self.date = [self.date dateByAddingTimeInterval:24*3600];
             NSLog(@"Incremented: %@", self.date);
     }
-    
-    notification.fireDate = self.date;
-    notification.timeZone = [NSTimeZone defaultTimeZone];
-    
-    notification.alertBody = [NSString stringWithFormat:@"Wake up!!!"];
-    notification.alertAction = @"View";
 
-    // alarm has to be archived in notification
-//    NSData *serialzedAlarm = [NSKeyedArchiver archivedDataWithRootObject:self];    
-    NSDictionary *infoDict = [NSDictionary 
-                              dictionaryWithObject:alarmId forKey:@"Id"];
-    notification.userInfo = infoDict;
-    notification.soundName = @"sound.aiff";
-    notification.repeatInterval = NSMinuteCalendarUnit;
-
-    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-//    notification.soundName = UILocalNotificationDefaultSoundName;
-//    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    // schedule all the alarms
+    for (int i =  0; i < numberOfAlarms; i++) {
+        notification.fireDate = [self.date dateByAddingTimeInterval:(60*repeatInterval*i)];
+        notification.timeZone = [NSTimeZone defaultTimeZone];
+        
+        notification.alertBody = [NSString stringWithFormat:@"Wake up!!!"];
+        notification.alertAction = @"View";
+        
+        // alarm has to be archived in notification
+        //    NSData *serialzedAlarm = [NSKeyedArchiver archivedDataWithRootObject:self];    
+        NSDictionary *infoDict = [NSDictionary 
+                                  dictionaryWithObject:alarmId forKey:@"Id"];
+        notification.userInfo = infoDict;
+        notification.soundName = @"sound.aiff";
+        notification.repeatInterval = NSMinuteCalendarUnit;
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        //    notification.soundName = UILocalNotificationDefaultSoundName;
+        //    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+    }
 }
 
 - (void)descheduleNotification {
@@ -167,7 +176,12 @@
 //    [super initWithCoder:aDecoder];
     if((self = [super init])){
         on = [aDecoder decodeBoolForKey:@"On"];
-        snooze = [aDecoder decodeBoolForKey:@"Snooze"];
+        snoozeOn = [aDecoder decodeBoolForKey:@"Snooze"];
+        reminderOn = [aDecoder decodeBoolForKey:@"Reminder"];
+        pandaOn = [aDecoder decodeBoolForKey:@"Panda"];
+        
+        numberOfAlarms = [aDecoder decodeIntegerForKey:@"Number Of Alarms"];
+        repeatInterval = [aDecoder decodeIntegerForKey:@"Repeat Interval"];
 
         name = [aDecoder decodeObjectForKey:@"Name"];
         sound = [aDecoder decodeObjectForKey:@"Sound"];
@@ -185,7 +199,12 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder{
     //[super encodeWithCoder:aCoder];
     [aCoder encodeBool:on forKey:@"On"];
-    [aCoder encodeBool:snooze forKey:@"Snooze"];
+    [aCoder encodeBool:snoozeOn forKey:@"Snooze"];
+    [aCoder encodeBool:reminderOn forKey:@"Reminder"];
+    [aCoder encodeBool:pandaOn forKey:@"Panda"];
+    
+    [aCoder encodeInteger:numberOfAlarms forKey:@"Number of Alarms"];
+    [aCoder encodeInteger:repeatInterval forKey:@"Repeat Interval"];
     
     [aCoder encodeObject:name forKey:@"Name"];
     [aCoder encodeObject:sound forKey:@"Sound"];
@@ -206,7 +225,12 @@
     Alarm *alarmCopy = [Alarm allocWithZone:zone];
     
     alarmCopy.on = on;
-    alarmCopy.snooze = snooze;
+    alarmCopy.snoozeOn = snoozeOn;
+    alarmCopy.reminderOn = reminderOn;
+    alarmCopy.pandaOn = pandaOn;
+    
+    alarmCopy.numberOfAlarms = numberOfAlarms;
+    alarmCopy.repeatInterval = repeatInterval;
     
     alarmCopy.name = name;
     alarmCopy.sound = sound;

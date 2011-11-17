@@ -13,10 +13,7 @@
 		7D6295DF120D4D7B00C7C17F /* AlarmsListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D6295DE120D4D7B00C7C17F /* AlarmsListCell.xib */; };
 		7D6295F9120DB47000C7C17F /* AlarmDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6295F7120DB47000C7C17F /* AlarmDetailViewController.m */; };
 		7D6295FA120DB47000C7C17F /* AlarmDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D6295F8120DB47000C7C17F /* AlarmDetailViewController.xib */; };
-		7D6A05FF12D9D0B300B5519E /* sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 7D6A05FE12D9D0B300B5519E /* sound.caf */; };
 		7D6A060012D9D10900B5519E /* sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 7D6A05FE12D9D0B300B5519E /* sound.caf */; };
-		7D6A76B8121B973D001CE7B3 /* Alarm.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D078592120BAAAE008C6269 /* Alarm.m */; };
-		7D6A76D4121B9887001CE7B3 /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6A76D3121B9887001CE7B3 /* Tests.m */; };
 		7D72E53812D8B69C0032DA66 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D72E53712D8B69C0032DA66 /* GameView.m */; };
 		7D86D664130DAF0000F0249A /* StringGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D86D662130DAEFF00F0249A /* StringGameViewController.m */; };
 		7D86D665130DAF0000F0249A /* StringGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D86D663130DAEFF00F0249A /* StringGameViewController.xib */; };
@@ -37,17 +34,10 @@
 		7DD36409120EBA32008EF32A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DD36407120EBA32008EF32A /* InfoPlist.strings */; };
 		7DD3640A120EBA32008EF32A /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DD36408120EBA32008EF32A /* RootViewController.xib */; };
 		7DF913FA1210788D002C5C9C /* RepeatDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF913F91210788D002C5C9C /* RepeatDetailViewController.m */; };
+		9C58A7A5146628EB00576884 /* IntervalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C58A7A4146628EB00576884 /* IntervalCell.xib */; };
+		9C997A701466958400E13B4A /* DatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C997A6E1466958400E13B4A /* DatePickerViewController.m */; };
+		9C997A711466958400E13B4A /* DatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C997A6F1466958400E13B4A /* DatePickerViewController.xib */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		7D6A76B5121B9721001CE7B3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7DA017C6120A80F100AA1FCA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7D6A76AF121B96D5001CE7B3;
-			remoteInfo = "Unit Tests";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		7D078592120BAAAE008C6269 /* Alarm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alarm.m; sourceTree = "<group>"; };
@@ -59,7 +49,6 @@
 		7D6295F7120DB47000C7C17F /* AlarmDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmDetailViewController.m; sourceTree = "<group>"; };
 		7D6295F8120DB47000C7C17F /* AlarmDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AlarmDetailViewController.xib; path = Classes/AlarmDetailViewController.xib; sourceTree = "<group>"; };
 		7D6A05FE12D9D0B300B5519E /* sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = sound.caf; path = Classes/sound.caf; sourceTree = "<group>"; };
-		7D6A76B0121B96D5001CE7B3 /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D6A76B1121B96D5001CE7B3 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
 		7D6A76D2121B9887001CE7B3 /* Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tests.h; sourceTree = "<group>"; };
 		7D6A76D3121B9887001CE7B3 /* Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
@@ -94,16 +83,13 @@
 		7DF8C2B11219BCC000292DFE /* Panda Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Panda Test-Info.plist"; sourceTree = "<group>"; };
 		7DF913F81210788D002C5C9C /* RepeatDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepeatDetailViewController.h; sourceTree = "<group>"; };
 		7DF913F91210788D002C5C9C /* RepeatDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepeatDetailViewController.m; sourceTree = "<group>"; };
+		9C58A7A4146628EB00576884 /* IntervalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntervalCell.xib; sourceTree = "<group>"; };
+		9C997A6D1466958400E13B4A /* DatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatePickerViewController.h; sourceTree = "<group>"; };
+		9C997A6E1466958400E13B4A /* DatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatePickerViewController.m; sourceTree = "<group>"; };
+		9C997A6F1466958400E13B4A /* DatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DatePickerViewController.xib; path = Classes/DatePickerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7D6A76AD121B96D5001CE7B3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7DA017D0120A80F100AA1FCA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -155,6 +141,8 @@
 				7DA017EA120A80F100AA1FCA /* RootViewController.m */,
 				7D6295F6120DB47000C7C17F /* AlarmDetailViewController.h */,
 				7D6295F7120DB47000C7C17F /* AlarmDetailViewController.m */,
+				9C997A6D1466958400E13B4A /* DatePickerViewController.h */,
+				9C997A6E1466958400E13B4A /* DatePickerViewController.m */,
 				7DF913F81210788D002C5C9C /* RepeatDetailViewController.h */,
 				7DF913F91210788D002C5C9C /* RepeatDetailViewController.m */,
 				7DD1FF3A121BF5D10032C7E1 /* NameDetailViewController.h */,
@@ -188,7 +176,9 @@
 				7DDFF085131F59270021E79C /* panda.png */,
 				7DD36405120EBA2A008EF32A /* MainWindow.xib */,
 				7DD36408120EBA32008EF32A /* RootViewController.xib */,
+				9C58A7A4146628EB00576884 /* IntervalCell.xib */,
 				7D6295DE120D4D7B00C7C17F /* AlarmsListCell.xib */,
+				9C997A6F1466958400E13B4A /* DatePickerViewController.xib */,
 				7D6295F8120DB47000C7C17F /* AlarmDetailViewController.xib */,
 				7DD1FF3C121BF5D10032C7E1 /* NameDetailViewController.xib */,
 				7DCA419D12D854C500DA9EE4 /* GameViewController.xib */,
@@ -214,7 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				7DA017D3120A80F100AA1FCA /* Panda Alarm.app */,
-				7D6A76B0121B96D5001CE7B3 /* Unit Tests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -222,24 +211,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7D6A76AF121B96D5001CE7B3 /* Unit Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7D6A76B4121B96D5001CE7B3 /* Build configuration list for PBXNativeTarget "Unit Tests" */;
-			buildPhases = (
-				7D6A76AB121B96D5001CE7B3 /* Resources */,
-				7D6A76AC121B96D5001CE7B3 /* Sources */,
-				7D6A76AD121B96D5001CE7B3 /* Frameworks */,
-				7D6A76AE121B96D5001CE7B3 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Unit Tests";
-			productName = "Unit Tests";
-			productReference = 7D6A76B0121B96D5001CE7B3 /* Unit Tests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 		7DA017D2120A80F100AA1FCA /* Panda Alarm */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7DA017F1120A80F100AA1FCA /* Build configuration list for PBXNativeTarget "Panda Alarm" */;
@@ -251,7 +222,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				7D6A76B6121B9721001CE7B3 /* PBXTargetDependency */,
 			);
 			name = "Panda Alarm";
 			productName = "Panda Alarm";
@@ -279,20 +249,11 @@
 			projectRoot = "";
 			targets = (
 				7DA017D2120A80F100AA1FCA /* Panda Alarm */,
-				7D6A76AF121B96D5001CE7B3 /* Unit Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7D6A76AB121B96D5001CE7B3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7D6A05FF12D9D0B300B5519E /* sound.caf in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7DA017D1120A80F100AA1FCA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -308,37 +269,14 @@
 				7D951E4A12DA787200354CCD /* sound.aiff in Resources */,
 				7D86D665130DAF0000F0249A /* StringGameViewController.xib in Resources */,
 				7DC527C2131F6C9F006A9DD1 /* panda.png in Resources */,
+				9C58A7A5146628EB00576884 /* IntervalCell.xib in Resources */,
+				9C997A711466958400E13B4A /* DatePickerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		7D6A76AE121B96D5001CE7B3 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		7D6A76AC121B96D5001CE7B3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7D6A76B8121B973D001CE7B3 /* Alarm.m in Sources */,
-				7D6A76D4121B9887001CE7B3 /* Tests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7DA017CF120A80F100AA1FCA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -353,90 +291,34 @@
 				7DCA419E12D854C500DA9EE4 /* GameViewController.m in Sources */,
 				7D72E53812D8B69C0032DA66 /* GameView.m in Sources */,
 				7D86D664130DAF0000F0249A /* StringGameViewController.m in Sources */,
+				9C997A701466958400E13B4A /* DatePickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		7D6A76B6121B9721001CE7B3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7D6A76AF121B96D5001CE7B3 /* Unit Tests */;
-			targetProxy = 7D6A76B5121B9721001CE7B3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		7D6A76B2121B96D5001CE7B3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "Unit Tests-Info.plist";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					SenTestingKit,
-					"-framework",
-					UIKit,
-				);
-				PRODUCT_NAME = "Unit Tests";
-				SDKROOT = iphoneos;
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		7D6A76B3121B96D5001CE7B3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				INFOPLIST_FILE = "Unit Tests-Info.plist";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					SenTestingKit,
-					"-framework",
-					UIKit,
-				);
-				PRODUCT_NAME = "Unit Tests";
-				WRAPPER_EXTENSION = octest;
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
 		7DA017EF120A80F100AA1FCA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = (
+					"-Xclang",
+					"-fobjc-default-synthesize-properties",
+				);
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -445,14 +327,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_CFLAGS = (
+					"-Xclang",
+					"-fobjc-default-synthesize-properties",
+					"-DNS-BLOCK-ASSERTIONS=0",
+				);
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -463,7 +353,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				COPY_PHASE_STRIP = NO;
+				COPY_PHASE_STRIP = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Panda_Alarm_Prefix.pch;
@@ -498,15 +388,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7D6A76B4121B96D5001CE7B3 /* Build configuration list for PBXNativeTarget "Unit Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7D6A76B2121B96D5001CE7B3 /* Debug */,
-				7D6A76B3121B96D5001CE7B3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		7DA017C9120A80F100AA1FCA /* Build configuration list for PBXProject "Panda Alarm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -18,9 +18,9 @@
 @implementation Panda_AlarmAppDelegate
 
 
-@synthesize window;
-@synthesize navigationController;
-@synthesize rootViewController;
+//@synthesize window;
+//@synthesize navigationController;
+//@synthesize rootViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"FINISH LAUNCHING");
@@ -31,25 +31,20 @@
 //    [NSKeyedArchiver archiveRootObject:rootViewController.alarmsList toFile:archivePath];
     
     //no saved settings - use defaults
-    if(alarmsList == nil){
+    if(alarmsList == nil) {
         NSLog(@"Using Defualt Alarms");
-        //set up list of alarms
+        
         alarmsList = [[NSMutableArray alloc] init];
-        
-        //inject list
-        [rootViewController initList:alarmsList];
-        
-        //no longer need it
-//        [alarmsList release];
         
         //no alarms exist
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    }
-    else{
-        [rootViewController initList:alarmsList];
+        
+    } else {
         NSLog(@"Using Archived Alarms");
     }
-//End saved settings
+    
+    // inject list
+    rootViewController.alarmsList = alarmsList;
 
     //check if opened by an alarm
     UILocalNotification *notif = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];

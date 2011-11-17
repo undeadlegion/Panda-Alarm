@@ -10,11 +10,12 @@
 #import "AlarmDetailViewController.h"
 #import "RepeatDetailViewController.h"
 #import "NameDetailViewController.h"
+#import "DatePickerViewController.h"
 
 @implementation AlarmDetailViewController
 
-@synthesize repeatCell, soundCell, snoozeCell, nameCell;  
-@synthesize myTableView, datePicker, currentAlarm;
+//@synthesize repeatCell, soundCell, snoozeCell, nameCell;  
+//@synthesize myTableView, datePicker, currentAlarm;
 
 
 #pragma mark -
@@ -49,9 +50,19 @@
     nameCell.detailTextLabel.text = currentAlarm.name;
     //update snooze cell on/off
     
-    //update date picker
-    [datePicker setDate:currentAlarm.date animated:NO];
-
+    [numberOfAlarmsSlider setValue:currentAlarm.numberOfAlarms animated:NO];
+//    numberOfAlarmsSlider.value = currentAlarm.numberOfAlarms;
+    repeatIntervalSlider.value = currentAlarm.repeatInterval;
+    
+//    NSLog(@"Checking if setting date");
+//    if (datePicker) {
+    
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"h:mm a"];
+        NSString *timeText = [formatter stringFromDate:currentAlarm.date];
+        NSLog(@"Setting Date %@", timeText);
+        beginCell.detailTextLabel.text = timeText;
+//    }
 }
 
 - (id)init{
@@ -63,76 +74,184 @@
 }
 
 - (void)initCells {
-    repeatCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier: nil];
-    repeatCell.textLabel.text = @"Repeat";
-    repeatCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	//convert date to string 
+	NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+	[formatter setDateFormat:@"h:mm a"];
+	NSString *timeText = [formatter stringFromDate:currentAlarm.date];
+    
+    beginCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
+    beginCell.textLabel.text = @"Alarm";
+    beginCell.detailTextLabel.text = timeText;
+    beginCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    endCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
+    endCell.textLabel.text = @"Last Alarm";
+    endCell.detailTextLabel.text = timeText;
+    endCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"IntervalCell" owner:self options:nil];
+    intervalCell = [topLevelObjects objectAtIndex:0];
+    [(UILabel *)[intervalCell viewWithTag:1] setText:@"Interval"];
+    repeatIntervalSlider = (UISlider *)[intervalCell viewWithTag:2];
+    repeatIntervalLabel = (UILabel *)[intervalCell viewWithTag:3];
+    repeatIntervalLabel.text = @"1 min";
+    repeatIntervalSlider.maximumValue = 20;
+
+    [repeatIntervalSlider addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
+   
+    topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"IntervalCell" owner:self options:nil];
+    numberCell = [topLevelObjects objectAtIndex:0];
+    [(UILabel *)[numberCell viewWithTag:1] setText:@"Number"];
+    numberOfAlarmsSlider = (UISlider *)[numberCell viewWithTag:2];
+    numberOfAlarmsLabel = (UILabel *)[numberCell viewWithTag:3];
+
+    numberOfAlarmsLabel.text = @"1";
+    numberOfAlarmsSlider.maximumValue = 10;
+    [numberOfAlarmsSlider addTarget:self action:@selector(numberSliderChanged:) forControlEvents:UIControlEventValueChanged];
+
+    nameCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier: nil];
+    nameCell.textLabel.text = @"Name";
+    nameCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     soundCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier: nil];
     soundCell.textLabel.text = @"Sound";
     soundCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
+    repeatCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier: nil];
+    repeatCell.textLabel.text = @"Repeat";
+    repeatCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
+    reminderCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
+    reminderCell.textLabel.text = @"Wakeup Reminder";
+    reminderCell.accessoryView = [[UISwitch alloc] initWithFrame:CGRectZero];
     
-    snoozeCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier: nil];
+    snoozeCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
     snoozeCell.textLabel.text = @"Snooze";
-    snoozeCell.detailTextLabel.text = @"On/Off";
-    snoozeCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    snoozeCell.accessoryView = [[UISwitch alloc] initWithFrame:CGRectZero];
     
-    nameCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier: nil];
-    nameCell.textLabel.text = @"Name";
-    nameCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    pandaWakeupCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
+    pandaWakeupCell.textLabel.text = @"Panda Wakeup";
+    pandaWakeupCell.accessoryView = [[UISwitch alloc] initWithFrame:CGRectZero];
+
+    
 }
 
-
+- (void)sliderChanged:(id)sender {
+    repeatIntervalLabel.text = [NSString stringWithFormat:@"%d min", (int)repeatIntervalSlider.value];
+    currentAlarm.repeatInterval = repeatIntervalSlider.value;
+}
+- (void)numberSliderChanged:(id)sender {
+    numberOfAlarmsLabel.text = [NSString stringWithFormat:@"%d", (int)numberOfAlarmsSlider.value];
+    currentAlarm.numberOfAlarms = numberOfAlarmsSlider.value;
+}
 #pragma mark -
 #pragma mark Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
 	UIViewController *viewController = nil;
-	switch (indexPath.row) {
+	switch (indexPath.section) {
 		case 0:
-            viewController = [[RepeatDetailViewController alloc] initWithAlarm:currentAlarm];
+            viewController = [[DatePickerViewController alloc] initWithAlarm:currentAlarm];
+            [viewController loadView];
+//            [viewController addObserver:self forKeyPath:@"datePicker.date" options:NSKeyValueObservingOptionNew context:NULL ];
+//            datePicker = ((DatePickerViewController *)viewController).datePicker;
+            if (indexPath.row == 0) {
+                viewController.title = @"First Alarm";
+            } else {
+                viewController.title = @"Last Alarm";
+            }
 			break;
 		case 1:				
 			//viewController = [[SoundViewController alloc] init];
 			break;
+        case 2:
+            break;
 		case 3:
 			viewController = [[NameDetailViewController alloc] initWithAlarm:currentAlarm];
 			break;
+            viewController = [[RepeatDetailViewController alloc] initWithAlarm:currentAlarm];
 	}
 	
 	//push new view onto the stack
 	[self.navigationController pushViewController:viewController animated:YES];
 }
 
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    NSLog(@"Observing shit!!");
+}
 #pragma mark -
 #pragma mark Table view data source
 
 
-// Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-
-// Customize the number of rows in the table view.
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 4;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return @"Time";
+        case 1:
+            return @"Multiple Alarms";
+        case 2:
+            return @"Details";
+        case 3:
+            return @"Snooze";
+        default:
+            return @"";
+    }
+}
 
-// Customize the appearance of table view cells.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return 1;
+        case 1:
+            return 2;
+        case 2:
+            return 3;
+        case 3:
+            return 3;
+        default:
+            return 0;
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	switch (indexPath.row) {
+	switch (indexPath.section) {
 		case 0:
-			return repeatCell;
-        case 1:				
-			return soundCell;
-		case 2:
-			return snoozeCell;
+            if (indexPath.row == 0) {
+                return beginCell;
+            }
+        case 1:
+            if (indexPath.row == 0) {
+                return numberCell;
+            } else if (indexPath.row == 1) {
+                return intervalCell;
+            }        
+        case 2:				
+            if (indexPath.row == 0) {
+                return nameCell;
+            } else if (indexPath.row == 1) {
+                return soundCell;
+            } else {
+                return repeatCell;
+            }
+            
 		case 3:
-			return nameCell;
+            if (indexPath.row == 0) {
+                return reminderCell;
+            } else if (indexPath.row == 1) {
+                return snoozeCell;
+            } else {
+                return pandaWakeupCell;
+            }
+            
+        default:
+            NSLog(@"Returning empty cell");
+            return nil;
 	}
-	return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -142,20 +261,24 @@
 #pragma mark -
 #pragma mark Target action
 
-- (void)setDate {
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-        
-    unsigned unitFlags = NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit
-                    |NSHourCalendarUnit|NSMinuteCalendarUnit;
-    NSDateComponents *pickerComps = [calendar components:unitFlags fromDate:datePicker.date];
-    currentAlarm.date = [calendar dateFromComponents:pickerComps];
-}
+//- (void)setAlarmDate {
+//    NSCalendar *calendar = [NSCalendar currentCalendar];
+//        
+//    unsigned unitFlags = NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit
+//                    |NSHourCalendarUnit|NSMinuteCalendarUnit;
+//    NSDateComponents *pickerComps = [calendar components:unitFlags fromDate:currentAlarm.date];
+//    currentAlarm.date = [calendar dateFromComponents:pickerComps];
+//}
 
-- (void)updateAlarm {
-    NSLog(@"[Updating Alarm]");
+- (void)saveAlarmSettings {
+    NSLog(@"[Saving Alarm Settings]");
     currentAlarm.sound = soundCell.detailTextLabel.text;
     currentAlarm.name = nameCell.detailTextLabel.text;
-    [self setDate];
+    currentAlarm.numberOfAlarms = (NSInteger)numberOfAlarmsSlider.value;
+    currentAlarm.repeatInterval = (NSInteger)repeatIntervalSlider.value;
+    // should settings just automatically save to the new alarm?
+    
+//    [self setAlarmDate];
 }
 
 #pragma mark -
@@ -174,13 +297,6 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
-
-- (void)dealloc {
-    NSLog(@"Alarm Detail View Controller Dealloc Called");
-    
-    
-}
-
 
 /*
 - (id)initWithAlarm:(Alarm *)alarm{

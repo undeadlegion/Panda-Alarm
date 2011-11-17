@@ -15,8 +15,8 @@
 
 @implementation RootViewController
 
-@synthesize alarmsList;
-@synthesize selectedAlarm, backedUpAlarm;
+//@synthesize alarmsList;
+//@synthesize selectedAlarm, backedUpAlarm;
 
 
 #pragma mark -
@@ -35,7 +35,7 @@
 	//add plus button
 	UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd 
         target:self 
-        action:@selector(addAlarm:)];
+        action:@selector(createNewAlarm:)];
     self.navigationItem.rightBarButtonItem = addButton;
     
     //show the navigation bar
@@ -45,16 +45,15 @@
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
         target:self 
         action:@selector(cancelFromAlarmDetailViewController:)];
-	UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave
-                                                                                 target:self 
-                                                                                 action:@selector(savedAlarm:)];
+	UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] 
+                                   initWithBarButtonSystemItem:UIBarButtonSystemItemSave
+                                   target:self 
+                                   action:@selector(saveFromAlarmDetailViewController:)];
     
     //initialize detail view controller
     alarmDetailViewController = [[AlarmDetailViewController alloc] init];
     alarmDetailViewController.navigationItem.leftBarButtonItem = cancelButton;
     alarmDetailViewController.navigationItem.rightBarButtonItem = saveButton;
-    
-    
 }
 
 
@@ -65,12 +64,6 @@
     //reload any changes
     [self.tableView reloadData];
 }
-
-
-- (void)initList:(NSMutableArray *)list {
-    alarmsList = list;
-}
-
 
 #pragma mark -
 #pragma mark Table view data source
@@ -84,12 +77,10 @@
     return [alarmsList count];
 }
 
-//returns cell height
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	return 60;
 }
 
-//loads each cell when scrolling
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     static NSString *CellIdentifier = @"AlarmsListCell";
@@ -97,23 +88,20 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        //load cell from nib
+        // load from nib
         NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"AlarmsListCell" owner:self options:nil];
         cell = [topLevelObjects objectAtIndex:0];
     }
      
-    //get alarm representing this cell	
+    // set up cell
 	Alarm *currentAlarm = [alarmsList objectAtIndex:indexPath.row];
-    
-    //update cell information
-    [self updateCell:cell withAlarm:currentAlarm];
-//cell.backgroundColor = [UIColor blackColor];
+    [self populateCell:cell withAlarm:currentAlarm];
     
     return cell;
 }
 
 //sets up a cell to display an alarm
-- (void)updateCell:(UITableViewCell *)cell withAlarm:(Alarm *)alarm {
+- (void)populateCell:(UITableViewCell *)cell withAlarm:(Alarm *)alarm {
     //update time label
     UILabel *time, *name, *amPm; 
 	time = (UILabel *)[cell viewWithTag:1]; 
@@ -158,7 +146,6 @@
 	name.text = alarm.name;
 }
 
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -172,53 +159,36 @@
         NSLog(@"Why are we inserting?");
     }   
 }
-/*
- Implement for custom animations
-- (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    UISwitch *on = (UISwitch *)[cell viewWithTag:2];
-    [on setHidden:YES];    
-}
-- (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    UISwitch *on = (UISwitch *)[cell viewWithTag:2];
-    [on setHidden:NO];    
-}
- */
 
+
+#pragma mark -
 #pragma mark Table view delegate
 
 //pushes alarm detail view onto the stack
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     //property retains selectedAlarm
     self.selectedAlarm = [alarmsList objectAtIndex:indexPath.row];
-
-    //property copies selectedAlarm
-    self.backedUpAlarm = selectedAlarm;
     
-    //set controller to display selected alarm
-    alarmDetailViewController.currentAlarm = selectedAlarm;
-    alarmDetailViewController.title = @"Edit Alarm"; 
-    
-    //push controller onto the stack
-    [self.navigationController pushViewController:alarmDetailViewController animated:YES];
+    [self editSelectedAlarm];
 }
 
 
 #pragma mark -
 #pragma mark Target action
 
-- (void)savedAlarm:(id)sender{
-    //update alarm
-    [alarmDetailViewController updateAlarm];
+- (void)saveFromAlarmDetailViewController:(id)sender{
 
-    //alarm already exists in the list
+    // update alarm
+//    [alarmDetailViewController saveAlarmSettings];
+    [selectedAlarm turnOn];
+    
+    // remove it from its old position
     if([alarmDetailViewController.title isEqualToString:@"Edit Alarm"]){
         [alarmsList removeObject:selectedAlarm];
     }
     
-    //add it to the list in ascending order
+    // add it in ascending order
     NSCalendar *calendar = [NSCalendar currentCalendar];
     unsigned unitFlagsHM = NSHourCalendarUnit|NSMinuteCalendarUnit;
     NSDateComponents *selectedHMComps = [calendar components:unitFlagsHM fromDate:selectedAlarm.date];
@@ -237,26 +207,25 @@
     [alarmsList insertObject:selectedAlarm atIndex:i];
     [self.tableView reloadData];
     [self.navigationController popViewControllerAnimated:YES];
-    [selectedAlarm turnOn];
 }
 
 - (void)cancelFromAlarmDetailViewController:(id)sender{
 
-    //index of alarm being modified
+    // index of alarm being modified
     NSUInteger index = [alarmsList indexOfObject:selectedAlarm];
     
-    //newly added alarm needs to be removed
-    if([alarmDetailViewController.title isEqualToString: @"Add Alarm"]){
-        [alarmsList removeObject:selectedAlarm];
-    }
-    //otherwise restore original alarm
-    else{
+    // replace with backed up alarm
+    if([alarmDetailViewController.title isEqualToString: @"Edit Alarm"]) {
         [alarmsList replaceObjectAtIndex:index withObject:backedUpAlarm];
     }
-
-    //pop detail view controller
+    
+    // clean up
+    self.selectedAlarm = nil;
+    self.backedUpAlarm = nil;
+    
+    // pop detail view controller
     [self.navigationController popViewControllerAnimated:YES];
-}
+} 
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated{
     NSInteger count = [[[UIApplication sharedApplication]scheduledLocalNotifications] count];
@@ -268,26 +237,37 @@
         [super setEditing:editing animated:animated];
 }
 
-- (void) addAlarm:(id)sender {
-    //added while in editing mode
+- (void) createNewAlarm:(id)sender {
+    // added while in editing mode
     if([super isEditing])
         [super setEditing:NO animated:YES];
     
-    //display a new alarm
+    // create it
     self.selectedAlarm = [[Alarm alloc] init];
-        
-    //retain count = 1
 
-    //pass it to the view controller
+    // inject it into the controller
     alarmDetailViewController.currentAlarm = selectedAlarm;
-    
-    //set title
     alarmDetailViewController.title = @"Add Alarm";
     
-    //push controller onto stack
+    // push controller onto the stack
     [self.navigationController pushViewController:alarmDetailViewController animated:YES];
 }
 
+- (void)editSelectedAlarm {
+    // added while in editing mode
+    if([super isEditing])
+        [super setEditing:NO animated:YES];
+
+    // make a copy
+    self.backedUpAlarm = self.selectedAlarm;
+    
+    // inject it into the controller
+    alarmDetailViewController.currentAlarm = selectedAlarm;
+    alarmDetailViewController.title = @"Edit Alarm"; 
+    
+    // push controller onto the stack
+    [self.navigationController pushViewController:alarmDetailViewController animated:YES];
+}
 
 - (IBAction)toggleOnSwitch:(id)sender {
     NSLog(@"Toggled On Switch");
@@ -322,10 +302,17 @@
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
 }
-
-- (void)dealloc {
-    NSLog(@"RootViewController Dealloc Called");
-    
-}
-
+/*
+ Implement for custom animations
+ - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath{
+ UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+ UISwitch *on = (UISwitch *)[cell viewWithTag:2];
+ [on setHidden:YES];    
+ }
+ - (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath{
+ UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+ UISwitch *on = (UISwitch *)[cell viewWithTag:2];
+ [on setHidden:NO];    
+ }
+ */
 @end

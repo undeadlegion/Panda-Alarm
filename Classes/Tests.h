@@ -24,6 +24,6 @@
 
 - (void) testAlarmAlloc;      
 - (void) testMath;              // simple standalone test
-- (void) testAlarmCopy;
+//- (void) testAlarmCopy;
 
 @end

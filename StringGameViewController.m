@@ -12,7 +12,7 @@
 
 
 @implementation StringGameViewController
-@synthesize alphaNumericLabel, textField, levelLabel, giveUpButton;
+//@synthesize alphaNumericLabel, textField, levelLabel, giveUpButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -154,8 +154,8 @@
     }
 }
 
-NSString *letters = @"abcdefghijklmnopqrstuvwxyz";
-NSString *numbers = @"0123456789";
+NSString *letters = @"ABCDEFGHpJKLMNPQRSTUVWXYZ";
+NSString *numbers = @"123456789";
 
 -(NSString *) genRandStringLength: (NSUInteger) len {
     

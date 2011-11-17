@@ -10,7 +10,7 @@
 #import "GameView.h"
 
 @implementation GameViewController
-@synthesize gameView;
+//@synthesize gameView;
 
 
 - (id)init {

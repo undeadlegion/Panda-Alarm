@@ -22,7 +22,7 @@
 }
 
 -(id)initWithAlarm:(Alarm *)alarm {
-    self = [super init];
+    self = [super initWithNibName:@"RepeatDetailViewController" bundle:nil];
     currentAlarm = alarm;
     return self;
 }

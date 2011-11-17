@@ -12,7 +12,7 @@
 
 @interface Alarm : NSObject<NSCopying, NSCoding>{
     BOOL on;
-	BOOL snooze;
+	BOOL snoozeOn;
     
     NSString *name;
     NSString *sound;
@@ -25,8 +25,13 @@
     NSString *alarmId;
 }
 
-@property (nonatomic, getter=isOn) BOOL on;
-@property (nonatomic, getter=isSnoozeOn) BOOL snooze;
+@property (nonatomic, assign) BOOL on;
+@property (nonatomic, assign) BOOL snoozeOn;
+@property (nonatomic, assign) BOOL reminderOn;
+@property (nonatomic, assign) BOOL pandaOn;
+
+@property (nonatomic, assign) NSInteger numberOfAlarms;
+@property (nonatomic, assign) NSInteger repeatInterval;
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *sound;
@@ -35,6 +40,7 @@
 @property (nonatomic, strong) NSMutableDictionary *selectedDaysOfTheWeek;
 @property (nonatomic, strong) NSArray *daysOfTheWeek;
 
+//@property (nonatomic, strong) NSMutableArray *scheduledNotifications;
 @property (nonatomic, strong) UILocalNotification *notification;
 @property (nonatomic, copy) NSString *alarmId;
 

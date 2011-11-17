@@ -11,10 +11,10 @@
 
 @implementation NameDetailViewController
 
-@synthesize textField;
+//@synthesize textField;
 
 - (id) initWithAlarm:(Alarm *)alarm{
-    self = [super init];
+    self = [super initWithNibName:@"NameDetailViewController" bundle:nil];
     currentAlarm = alarm;
     return self;
 }
