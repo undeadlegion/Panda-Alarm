@@ -8,18 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StringGameViewController : UIViewController
 
-@property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, strong) NSTimer *vibrateTimer;
-@property (nonatomic, assign) NSUInteger level;
+@interface StringGameViewController : UIViewController {
+    NSTimer *timer;
+    NSTimer *vibrateTimer;
+    NSUInteger level;
+}
 
+- (NSString *)genRandStringLength:(NSUInteger)len;
 @property (nonatomic, strong) IBOutlet UILabel *alphaNumericLabel;
 @property (nonatomic, strong) IBOutlet UITextField *textField;
 @property (nonatomic, strong) IBOutlet UILabel *levelLabel;
 @property (nonatomic, strong) IBOutlet UIButton *giveUpButton;
 
-- (NSString *)genRandStringLength:(NSUInteger)len;
 - (IBAction)textTyped:(id)sender;
 - (IBAction)nextWord:(id)sender;
 - (void)startGame;

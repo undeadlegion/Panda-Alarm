@@ -10,9 +10,12 @@
 
 @class Alarm;
 
-@interface RepeatDetailViewController : UITableViewController
+@interface RepeatDetailViewController : UITableViewController {
 
-@property (nonatomic, strong) Alarm *currentAlarm;
+    Alarm *currentAlarm;
+}
+
+
 - (id)initWithAlarm:(Alarm *)alarm;
 
 @end

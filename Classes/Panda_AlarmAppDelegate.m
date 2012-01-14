@@ -14,19 +14,29 @@
 #import <AVFoundation/AVFoundation.h>
 #import <AudioToolbox/AudioToolbox.h>
 
+
 @implementation Panda_AlarmAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSLog(@"FINISHED LAUNCHING");
 
+//@synthesize window;
+//@synthesize navigationController;
+//@synthesize rootViewController;
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSLog(@"FINISH LAUNCHING");
     //restore saved settings
     NSString *archivePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"AlarmList.archive"];
     alarmsList = [NSKeyedUnarchiver unarchiveObjectWithFile:archivePath];
+
+//    [NSKeyedArchiver archiveRootObject:rootViewController.alarmsList toFile:archivePath];
     
-    //no saved settings
+    //no saved settings - use defaults
     if(alarmsList == nil) {
         NSLog(@"Using Defualt Alarms");
+        
         alarmsList = [[NSMutableArray alloc] init];
+        
+        //no alarms exist
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
         
     } else {
@@ -44,6 +54,7 @@
         [self startGame];
     }
     
+    
     NSError *setCategoryError = nil;
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session
@@ -53,10 +64,12 @@
     NSError *activationError = nil;
     [[AVAudioSession sharedInstance] setActive: YES error: &activationError];
     
+
     //make view visible
     [window addSubview:navigationController.view];
     [window makeKeyAndVisible];
     
+//    [[UIApplication sharedApplication] setApplicationIconBadgeNumber: 0];
     return YES;
 }
 

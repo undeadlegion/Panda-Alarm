@@ -6,6 +6,7 @@
 //  Copyright (c) 2010 __MyCompanyName__. All rights reserved.
 //
 
+
 #import "RootViewController.h"
 #import "Alarm.h"
 #import "AlarmDetailViewController.h"
@@ -13,6 +14,10 @@
 #import "Panda_AlarmAppDelegate.h"
 
 @implementation RootViewController
+
+//@synthesize alarmsList;
+//@synthesize selectedAlarm, backedUpAlarm;
+
 
 #pragma mark -
 #pragma mark View and init
@@ -178,6 +183,24 @@
         [alarmsList removeObject:originalAlarm];
     }
     
+//    // add it in ascending order
+//    NSCalendar *calendar = [NSCalendar currentCalendar];
+//    unsigned unitFlagsHM = NSHourCalendarUnit|NSMinuteCalendarUnit;
+//    NSDateComponents *selectedHMComps = [calendar components:unitFlagsHM fromDate:modifiedAlarm.date];
+//    NSDate *selectedHM = [calendar dateFromComponents:selectedHMComps];
+//    
+//    int i = 0;
+//    for (Alarm *alarm in alarmsList) {
+//        NSDateComponents *alarmHMComps = [calendar components:unitFlagsHM fromDate:alarm.date];
+//        NSDate *alarmHM = [calendar dateFromComponents:alarmHMComps];
+//        if([selectedHM compare:alarmHM] == NSOrderedAscending) {
+//            break;
+//        }
+//        i++;
+//    }
+    
+//    [alarmsList insertObject:modifiedAlarm atIndex:i];
+
     int newIndex = [alarmsList indexOfObject:modifiedAlarm 
                 inSortedRange:NSMakeRange(0, [alarmsList count]) 
                 options:NSBinarySearchingInsertionIndex 
@@ -274,5 +297,17 @@
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
 }
-
+/*
+ Implement for custom animations
+ - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath{
+ UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+ UISwitch *on = (UISwitch *)[cell viewWithTag:2];
+ [on setHidden:YES];    
+ }
+ - (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath{
+ UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+ UISwitch *on = (UISwitch *)[cell viewWithTag:2];
+ [on setHidden:NO];    
+ }
+ */
 @end

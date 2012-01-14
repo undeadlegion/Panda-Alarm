@@ -8,7 +8,9 @@
 
 #import "GameView.h"
 
+
 @implementation GameView
+@synthesize center, radius;
 
 - (id)initWithFrame:(CGRect)frame {
     NSLog(@"Init GameView with Frame");
@@ -17,7 +19,6 @@
     }
     return self;
 }
-
 - (id)initWithCoder:(NSCoder *)aDecoder {
     NSLog(@"Init GameView with Coder");
     if(self = [super initWithCoder:aDecoder]){

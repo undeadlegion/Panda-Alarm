@@ -11,12 +11,23 @@
 @class Alarm;
 @class AlarmDetailViewController;
 
-@interface RootViewController : UITableViewController
+@interface RootViewController : UITableViewController {
+
+    //list of alarm objects
+    NSMutableArray * alarmsList;
+    
+    //alarm selected from tableview
+    Alarm *modifiedAlarm;
+    
+    //copy of selected alarm
+    Alarm *originalAlarm;
+    
+    AlarmDetailViewController * alarmDetailViewController;
+}
 
 @property (nonatomic, strong) NSMutableArray *alarmsList;
 @property (nonatomic, strong) Alarm *modifiedAlarm;
 @property (nonatomic, strong) Alarm *originalAlarm;
-@property (nonatomic, strong) AlarmDetailViewController *alarmDetailViewController;
 
 
 - (void)populateCell:(UITableViewCell *)cell withAlarm:(Alarm *)alarm;
