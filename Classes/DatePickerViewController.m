@@ -10,6 +10,7 @@
 #import "Alarm.h"
 
 @implementation DatePickerViewController
+@synthesize timeCell, datePicker, currentAlarm, tableView;
 
 - (IBAction)dateChanged:(id)sender {
     [self setDateLabel:datePicker.date];

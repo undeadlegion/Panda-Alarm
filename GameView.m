@@ -9,6 +9,7 @@
 #import "GameView.h"
 
 @implementation GameView
+@synthesize center, radius, singleTap, bounds, tapsLeft;
 
 - (id)initWithFrame:(CGRect)frame {
     NSLog(@"Init GameView with Frame");

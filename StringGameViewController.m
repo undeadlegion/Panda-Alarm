@@ -11,6 +11,8 @@
 #import <AudioToolbox/AudioToolbox.h>
 
 @implementation StringGameViewController
+@synthesize timer, vibrateTimer, level;
+@synthesize alphaNumericLabel, textField, levelLabel, giveUpButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -9,6 +9,11 @@
 #import "Alarm.h"
 
 @implementation Alarm
+@synthesize on, snoozeOn, reminderOn, pandaOn;
+@synthesize numberOfAlarms, repeatInterval;
+@synthesize name, sound, date;
+@synthesize selectedDaysOfTheWeek, daysOfTheWeek;
+@synthesize notification, alarmId;
 
 #pragma mark -
 #pragma mark Initialization

@@ -15,6 +15,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 
 @implementation Panda_AlarmAppDelegate
+@synthesize window, navigationController, rootViewController, alarmsList;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"FINISHED LAUNCHING");

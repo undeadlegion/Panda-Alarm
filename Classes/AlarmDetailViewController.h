@@ -16,8 +16,9 @@
 @property (nonatomic, strong) UISlider *repeatIntervalSlider;
 @property (nonatomic, strong) UILabel *repeatIntervalLabel;
 @property (nonatomic, strong) UISlider *numberOfAlarmsSlider;
-@property (nonatomic, strong) UILabel *numberOfAlarmsLabel;@property (nonatomic, strong) IBOutlet UITableView *myTableView;
+@property (nonatomic, strong) UILabel *numberOfAlarmsLabel;
 
+@property (nonatomic, strong) IBOutlet UITableView *myTableView;
 //@property (nonatomic, strong) IBOutlet UIDatePicker *datePicker;
 @property (nonatomic, strong) Alarm *currentAlarm;
 

@@ -10,6 +10,7 @@
 #import "Alarm.h"
 
 @implementation NameDetailViewController
+@synthesize currentAlarm, textField;
 
 - (id) initWithAlarm:(Alarm *)alarm{
     self = [super initWithNibName:@"NameDetailViewController" bundle:nil];

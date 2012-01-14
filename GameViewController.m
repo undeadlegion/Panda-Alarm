@@ -10,6 +10,7 @@
 #import "GameView.h"
 
 @implementation GameViewController
+@synthesize gameView, singleTap, tapsLeft, timer, vibrateTimer;
 
 - (id)init {
     self = [super initWithNibName:@"GameViewController" bundle:nil];

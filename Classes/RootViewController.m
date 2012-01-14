@@ -13,6 +13,7 @@
 #import "Panda_AlarmAppDelegate.h"
 
 @implementation RootViewController
+@synthesize alarmsList, modifiedAlarm, originalAlarm, alarmDetailViewController;
 
 #pragma mark -
 #pragma mark View and init

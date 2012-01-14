@@ -13,6 +13,11 @@
 #import "DatePickerViewController.h"
 
 @implementation AlarmDetailViewController
+@synthesize repeatIntervalSlider, repeatIntervalLabel, numberOfAlarmsSlider, numberOfAlarmsLabel;
+@synthesize myTableView, currentAlarm;
+@synthesize beginCell, endCell, numberCell, intervalCell;
+@synthesize nameCell, soundCell, repeatCell;
+@synthesize reminderCell, snoozeCell, pandaWakeupCell;
 
 #pragma mark -
 #pragma mark View and init

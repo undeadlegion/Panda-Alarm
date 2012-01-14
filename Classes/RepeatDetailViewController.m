@@ -10,6 +10,7 @@
 #import "Alarm.h"
 
 @implementation RepeatDetailViewController
+@synthesize currentAlarm;
 
 #pragma mark -
 #pragma mark View and init
