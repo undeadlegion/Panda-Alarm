@@ -11,14 +11,11 @@
 
 @implementation NameDetailViewController
 
-//@synthesize textField;
-
 - (id) initWithAlarm:(Alarm *)alarm{
     self = [super initWithNibName:@"NameDetailViewController" bundle:nil];
     currentAlarm = alarm;
     return self;
 }
-
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {

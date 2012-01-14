@@ -14,10 +14,6 @@
 
 @implementation AlarmDetailViewController
 
-//@synthesize repeatCell, soundCell, snoozeCell, nameCell;  
-//@synthesize myTableView, datePicker, currentAlarm;
-
-
 #pragma mark -
 #pragma mark View and init
 

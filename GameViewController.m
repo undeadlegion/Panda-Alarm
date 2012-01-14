@@ -10,8 +10,6 @@
 #import "GameView.h"
 
 @implementation GameViewController
-//@synthesize gameView;
-
 
 - (id)init {
     self = [super initWithNibName:@"GameViewController" bundle:nil];
