@@ -168,6 +168,17 @@
     [self descheduleNotification];
 }
 
+- (NSComparisonResult)compare:(Alarm *)other {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    unsigned unitFlagsHM = NSHourCalendarUnit|NSMinuteCalendarUnit;
+
+    NSDateComponents *selfHMComponents = [calendar components:unitFlagsHM fromDate:self.date];
+    NSDateComponents *otherHMComponents = [calendar components:unitFlagsHM fromDate:other.date];
+    NSDate *selfHMDate = [calendar dateFromComponents:selfHMComponents];
+    NSDate *otherHMDate = [calendar dateFromComponents:otherHMComponents];
+    
+    return [selfHMDate compare:otherHMDate];
+}
 
 #pragma mark -
 #pragma mark NSCoding protocol

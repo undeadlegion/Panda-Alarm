@@ -46,6 +46,7 @@
 
 
 - (NSString *)stringFromSelectedDaysOfTheWeek;
+- (NSComparisonResult)compare:(Alarm *)other;
 - (id)init;
 - (void)turnOn;
 - (void)turnOff;

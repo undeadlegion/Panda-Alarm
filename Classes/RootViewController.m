@@ -165,12 +165,8 @@
 #pragma mark Table view delegate
 
 //pushes alarm detail view onto the stack
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    //property retains selectedAlarm
-    self.selectedAlarm = [alarmsList objectAtIndex:indexPath.row];
-    
-    [self editSelectedAlarm];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {    
+    [self editSelectedAlarm:[alarmsList objectAtIndex:indexPath.row]];
 }
 
 
@@ -181,88 +177,78 @@
 
     // update alarm
 //    [alarmDetailViewController saveAlarmSettings];
-    [selectedAlarm turnOn];
+    [modifiedAlarm turnOn];
     
-    // remove it from its old position
-    if([alarmDetailViewController.title isEqualToString:@"Edit Alarm"]){
-        [alarmsList removeObject:selectedAlarm];
+    if(self.originalAlarm) {
+        [alarmsList removeObject:originalAlarm];
     }
     
-    // add it in ascending order
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    unsigned unitFlagsHM = NSHourCalendarUnit|NSMinuteCalendarUnit;
-    NSDateComponents *selectedHMComps = [calendar components:unitFlagsHM fromDate:selectedAlarm.date];
-    NSDate *selectedHM = [calendar dateFromComponents:selectedHMComps];
+//    // add it in ascending order
+//    NSCalendar *calendar = [NSCalendar currentCalendar];
+//    unsigned unitFlagsHM = NSHourCalendarUnit|NSMinuteCalendarUnit;
+//    NSDateComponents *selectedHMComps = [calendar components:unitFlagsHM fromDate:modifiedAlarm.date];
+//    NSDate *selectedHM = [calendar dateFromComponents:selectedHMComps];
+//    
+//    int i = 0;
+//    for (Alarm *alarm in alarmsList) {
+//        NSDateComponents *alarmHMComps = [calendar components:unitFlagsHM fromDate:alarm.date];
+//        NSDate *alarmHM = [calendar dateFromComponents:alarmHMComps];
+//        if([selectedHM compare:alarmHM] == NSOrderedAscending) {
+//            break;
+//        }
+//        i++;
+//    }
     
-    int i = 0;
-    for (Alarm *alarm in alarmsList) {
-        NSDateComponents *alarmHMComps = [calendar components:unitFlagsHM fromDate:alarm.date];
-        NSDate *alarmHM = [calendar dateFromComponents:alarmHMComps];
-        if([selectedHM compare:alarmHM] == NSOrderedAscending){
-            break;
-        }
-        i++;
-    }
+//    [alarmsList insertObject:modifiedAlarm atIndex:i];
+
+    int newIndex = [alarmsList indexOfObject:modifiedAlarm 
+                inSortedRange:NSMakeRange(0, [alarmsList count]) 
+                options:NSBinarySearchingInsertionIndex 
+              usingComparator:^(Alarm * alarm1, Alarm * alarm2){
+                  return [alarm1 compare:alarm2];
+              }];
+    NSLog(@"New Index:%d", newIndex);
+    [alarmsList insertObject:modifiedAlarm atIndex:newIndex];
     
-    [alarmsList insertObject:selectedAlarm atIndex:i];
     [self.tableView reloadData];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)cancelFromAlarmDetailViewController:(id)sender{
-
-    // index of alarm being modified
-    NSUInteger index = [alarmsList indexOfObject:selectedAlarm];
-    
-    // replace with backed up alarm
-    if([alarmDetailViewController.title isEqualToString: @"Edit Alarm"]) {
-        [alarmsList replaceObjectAtIndex:index withObject:backedUpAlarm];
-    }
-    
-    // clean up
-    self.selectedAlarm = nil;
-    self.backedUpAlarm = nil;
-    
-    // pop detail view controller
+- (void)cancelFromAlarmDetailViewController:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 } 
-
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated{
-    NSInteger count = [[[UIApplication sharedApplication]scheduledLocalNotifications] count];
-    NSLog(@"Alarms %d\n", [alarmsList count]);
-    NSLog(@"Number scheduled: %i",count);
-    if(count != 0)
-        NSLog(@"Scheduled: %@", [[UIApplication sharedApplication] scheduledLocalNotifications]);
-//    [(Panda_AlarmAppDelegate *)[[UIApplication sharedApplication] delegate] startGame];
-        [super setEditing:editing animated:animated];
-}
 
 - (void) createNewAlarm:(id)sender {
     // added while in editing mode
     if([super isEditing])
         [super setEditing:NO animated:YES];
     
-    // create it
-    self.selectedAlarm = [[Alarm alloc] init];
+    // make sure it doesn't exist
+    self.originalAlarm = nil;
+    self.modifiedAlarm = [[Alarm alloc] init];
 
     // inject it into the controller
-    alarmDetailViewController.currentAlarm = selectedAlarm;
+    alarmDetailViewController.currentAlarm = modifiedAlarm;
     alarmDetailViewController.title = @"Add Alarm";
     
     // push controller onto the stack
     [self.navigationController pushViewController:alarmDetailViewController animated:YES];
 }
 
-- (void)editSelectedAlarm {
+// back up current state and pass it to view controller
+- (void)editSelectedAlarm:(Alarm *)selectedAlarm {
     // added while in editing mode
     if([super isEditing])
         [super setEditing:NO animated:YES];
 
-    // make a copy
-    self.backedUpAlarm = self.selectedAlarm;
+    // hold onto it for later
+    self.originalAlarm = selectedAlarm;
+
+    // make a copy for the view controller
+    self.modifiedAlarm = [selectedAlarm copy];
     
     // inject it into the controller
-    alarmDetailViewController.currentAlarm = selectedAlarm;
+    alarmDetailViewController.currentAlarm = modifiedAlarm;
     alarmDetailViewController.title = @"Edit Alarm"; 
     
     // push controller onto the stack
@@ -278,15 +264,24 @@
     BOOL switchIsOn = ((UISwitch *)sender).isOn; 
     
     //get alarm that needs modification
-    Alarm *modifiedAlarm = [alarmsList objectAtIndex:indexPath.row];
+    Alarm *toggledAlarm = [alarmsList objectAtIndex:indexPath.row];
 
     //update modified alarm
     if(switchIsOn)
-        [modifiedAlarm turnOn];
+        [toggledAlarm turnOn];
     else
-        [modifiedAlarm turnOff];
+        [toggledAlarm turnOff];
 }
 
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated{
+    NSInteger count = [[[UIApplication sharedApplication]scheduledLocalNotifications] count];
+    NSLog(@"Alarms %d\n", [alarmsList count]);
+    NSLog(@"Number scheduled: %i",count);
+    if(count != 0)
+        NSLog(@"Scheduled: %@", [[UIApplication sharedApplication] scheduledLocalNotifications]);
+    //    [(Panda_AlarmAppDelegate *)[[UIApplication sharedApplication] delegate] startGame];
+    [super setEditing:editing animated:animated];
+}
 
 #pragma mark -
 #pragma mark Memory management

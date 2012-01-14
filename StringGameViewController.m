@@ -154,7 +154,7 @@
     }
 }
 
-NSString *letters = @"ABCDEFGHpJKLMNPQRSTUVWXYZ";
+NSString *letters = @"ABCDEFGHJKLMNPQRSTUVWXYZ";
 NSString *numbers = @"123456789";
 
 -(NSString *) genRandStringLength: (NSUInteger) len {

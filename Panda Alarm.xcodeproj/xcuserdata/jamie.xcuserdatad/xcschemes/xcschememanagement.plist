@@ -9,22 +9,14 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>Panda Test.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>Panda Alarm.app</key>
-		<true/>
-		<key>Panda Test.octest</key>
-		<true/>
-		<key>Unit Tests.octest</key>
-		<true/>
-		<key>UnitTest.app</key>
-		<true/>
+		<key>7DA017D2120A80F100AA1FCA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>
