@@ -9,21 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-
-@interface Alarm : NSObject<NSCopying, NSCoding>{
-    BOOL on;
-	BOOL snoozeOn;
-    
-    NSString *name;
-    NSString *sound;
-	NSDate *date;
-    
-    NSMutableDictionary *selectedDaysOfTheWeek;
-    NSArray *daysOfTheWeek;
-        
-    UILocalNotification *notification;
-    NSString *alarmId;
-}
+@interface Alarm : NSObject<NSCopying, NSCoding>
 
 @property (nonatomic, assign) BOOL on;
 @property (nonatomic, assign) BOOL snoozeOn;

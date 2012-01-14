@@ -12,15 +12,13 @@
 
 @class GameView;
 
+@interface GameViewController : UIViewController <UINavigationBarDelegate>
 
-@interface GameViewController : UIViewController <UINavigationBarDelegate> {
-    GameView *gameView;
-    UITapGestureRecognizer *singleTap;
-    NSInteger tapsLeft;
-    NSTimer *timer;
-    NSTimer *vibrateTimer;
-}
 @property (nonatomic, strong) IBOutlet GameView *gameView;
+@property (nonatomic, strong) UITapGestureRecognizer *singleTap;
+@property (nonatomic, assign) NSInteger tapsLeft;
+@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) NSTimer *vibrateTimer;
 
 - (id)init; 
 - (void)screenTapped:(id)sender;

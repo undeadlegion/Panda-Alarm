@@ -10,9 +10,7 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-
 @implementation StringGameViewController
-//@synthesize alphaNumericLabel, textField, levelLabel, giveUpButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

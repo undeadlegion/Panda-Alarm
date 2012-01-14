@@ -7,14 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @class Alarm;
 
-@interface NameDetailViewController : UIViewController {
+@interface NameDetailViewController : UIViewController
 
-    UITextField *textField;
-    Alarm *currentAlarm;
-}
-
+@property (nonatomic, strong) Alarm *currentAlarm;
 @property (nonatomic, strong) IBOutlet UITextField *textField;
 
 - (id)initWithAlarm:(Alarm *)alarm;

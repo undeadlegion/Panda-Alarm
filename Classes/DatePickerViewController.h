@@ -10,11 +10,9 @@
 
 @class Alarm;
 
-@interface DatePickerViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
-    UITableViewCell *timeCell;
-    
-}
+@interface DatePickerViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic, strong) UITableViewCell *timeCell;
 @property (nonatomic, strong) IBOutlet UIDatePicker *datePicker;
 @property (nonatomic, strong) Alarm *currentAlarm;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
