@@ -67,13 +67,26 @@
 	return 45;
 }
 
+#pragma mark - Target action
+
+
+- (void)doneClicked:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - View lifecycle
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];    
     [datePicker setDate:currentAlarm.date];
     [self setDateLabel:datePicker.date];
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                                                target:self
+                                                                                action:@selector(doneClicked:)];
+    self.navigationItem.rightBarButtonItem = doneButton;
 }
 
 - (void)viewDidUnload

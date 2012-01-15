@@ -50,10 +50,12 @@
     soundCell.detailTextLabel.text = currentAlarm.sound;
     nameCell.detailTextLabel.text = currentAlarm.name;
     //update snooze cell on/off
+
+    numberOfAlarmsSlider.value = currentAlarm.numberOfAlarms; 
+    [numberOfAlarmsSlider sendActionsForControlEvents:UIControlEventValueChanged];
     
-    [numberOfAlarmsSlider setValue:currentAlarm.numberOfAlarms animated:NO];
-//    numberOfAlarmsSlider.value = currentAlarm.numberOfAlarms;
     repeatIntervalSlider.value = currentAlarm.repeatInterval;
+    [repeatIntervalSlider sendActionsForControlEvents:UIControlEventValueChanged];
     
 //    NSLog(@"Checking if setting date");
 //    if (datePicker) {
@@ -81,7 +83,7 @@
 	NSString *timeText = [formatter stringFromDate:currentAlarm.date];
     
     beginCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-    beginCell.textLabel.text = @"Alarm";
+    beginCell.textLabel.text = @"First Alarm";
     beginCell.detailTextLabel.text = timeText;
     beginCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
@@ -138,10 +140,13 @@
 }
 
 - (void)sliderChanged:(id)sender {
+    NSLog(@"Repeat Interval Slider changed %d", (int)repeatIntervalSlider.value);
     repeatIntervalLabel.text = [NSString stringWithFormat:@"%d min", (int)repeatIntervalSlider.value];
     currentAlarm.repeatInterval = repeatIntervalSlider.value;
 }
+
 - (void)numberSliderChanged:(id)sender {
+    NSLog(@"Number Slider Changed %d", (int)numberOfAlarmsSlider.value);
     numberOfAlarmsLabel.text = [NSString stringWithFormat:@"%d", (int)numberOfAlarmsSlider.value];
     currentAlarm.numberOfAlarms = numberOfAlarmsSlider.value;
 }

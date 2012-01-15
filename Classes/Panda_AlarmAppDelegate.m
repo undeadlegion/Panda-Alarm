@@ -19,12 +19,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"FINISHED LAUNCHING");
-
+    
     //restore saved settings
     NSString *archivePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"AlarmList.archive"];
     alarmsList = [NSKeyedUnarchiver unarchiveObjectWithFile:archivePath];
     
-    //no saved settings
+    // remove when done testing
+    alarmsList = nil;
+    
+    // no saved settings
     if(alarmsList == nil) {
         NSLog(@"Using Defualt Alarms");
         alarmsList = [[NSMutableArray alloc] init];

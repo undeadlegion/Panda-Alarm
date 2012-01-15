@@ -172,11 +172,13 @@
 - (void)saveFromAlarmDetailViewController:(id)sender{
 
     // update alarm
+// no longer necessary
 //    [alarmDetailViewController saveAlarmSettings];
     [modifiedAlarm turnOn];
     
     if(self.originalAlarm) {
         [alarmsList removeObject:originalAlarm];
+        self.originalAlarm = nil;
     }
     
     int newIndex = [alarmsList indexOfObject:modifiedAlarm 
@@ -193,6 +195,8 @@
 }
 
 - (void)cancelFromAlarmDetailViewController:(id)sender {
+    self.modifiedAlarm = nil;
+    self.originalAlarm = nil;
     [self.navigationController popViewControllerAnimated:YES];
 } 
 
@@ -252,11 +256,14 @@
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated{
-    NSInteger count = [[[UIApplication sharedApplication]scheduledLocalNotifications] count];
-    NSLog(@"Alarms %d\n", [alarmsList count]);
-    NSLog(@"Number scheduled: %i",count);
-    if(count != 0)
-        NSLog(@"Scheduled: %@", [[UIApplication sharedApplication] scheduledLocalNotifications]);
+    if (editing) {
+        NSInteger count = [[[UIApplication sharedApplication]scheduledLocalNotifications] count];
+        NSLog(@"Alarms %d\n", [alarmsList count]);
+        NSLog(@"Number scheduled: %i",count);
+        if(count != 0)
+            NSLog(@"Scheduled: %@", [[UIApplication sharedApplication] scheduledLocalNotifications]);
+    }
+    
     //    [(Panda_AlarmAppDelegate *)[[UIApplication sharedApplication] delegate] startGame];
     [super setEditing:editing animated:animated];
 }
