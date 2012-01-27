@@ -159,9 +159,6 @@
 	switch (indexPath.section) {
 		case 0:
             viewController = [[DatePickerViewController alloc] initWithAlarm:currentAlarm];
-            [viewController loadView];
-//            [viewController addObserver:self forKeyPath:@"datePicker.date" options:NSKeyValueObservingOptionNew context:NULL ];
-//            datePicker = ((DatePickerViewController *)viewController).datePicker;
             if (indexPath.row == 0) {
                 viewController.title = @"First Alarm";
             } else {
