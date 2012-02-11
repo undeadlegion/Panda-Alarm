@@ -18,5 +18,6 @@
 @property (nonatomic, strong) NSMutableArray *alarmsList;
 
 - (void)startGame;
-- (void)turnOffAlarmWithId:(NSString*) AlarmId;
+- (void)startDotGame;
+- (void)turnOffAlarmWithId:(NSString*) AlarmId notification:(UILocalNotification *) notif;
 @end

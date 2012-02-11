@@ -22,14 +22,13 @@
 }
 
 -(id)initWithAlarm:(Alarm *)alarm {
-    self = [super initWithNibName:@"RepeatDetailViewController" bundle:nil];
+    self = [super init];
     currentAlarm = alarm;
     return self;
 }
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 #pragma mark -
@@ -125,7 +124,7 @@
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
+        
     // Relinquish ownership any cached data, images, etc that aren't in use.
 }
 

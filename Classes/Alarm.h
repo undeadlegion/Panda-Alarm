@@ -16,7 +16,7 @@
 @property (nonatomic, assign) BOOL reminderOn;
 @property (nonatomic, assign) BOOL pandaOn;
 
-@property (nonatomic, assign) NSInteger numberOfAlarms;
+@property (nonatomic, assign) NSInteger extraAlarms;
 @property (nonatomic, assign) NSInteger repeatInterval;
 
 @property (nonatomic, copy) NSString *name;
@@ -26,8 +26,7 @@
 @property (nonatomic, strong) NSMutableDictionary *selectedDaysOfTheWeek;
 @property (nonatomic, strong) NSArray *daysOfTheWeek;
 
-//@property (nonatomic, strong) NSMutableArray *scheduledNotifications;
-@property (nonatomic, strong) UILocalNotification *notification;
+@property (nonatomic, strong) NSMutableArray *scheduledNotifications;
 @property (nonatomic, copy) NSString *alarmId;
 
 
@@ -36,8 +35,8 @@
 - (id)init;
 - (void)turnOn;
 - (void)turnOff;
-- (void)scheduleNotification;
-- (void)descheduleNotification;
-- (void)setDate;
-
+- (void)turnOffNotification:(UILocalNotification *)notif;
+- (void)scheduleNotifications;
+- (void)updateDateYMD;
+- (void)refreshScheduledNotifications;
 @end

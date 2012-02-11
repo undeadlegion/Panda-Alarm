@@ -130,6 +130,7 @@
 
 
 	//update alarm on off switch
+    NSLog(@"Updating on switch, alarm on: %d", alarm.on);
 	UISwitch *onSwitch = (UISwitch *)[cell viewWithTag:2];
 //	UISwitch *onSwitch = [[UISwitch alloc ] initWithFrame:CGRectZero];
     
@@ -146,8 +147,13 @@
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSLog(@"About to be deleted");
-        // Delete the row from the data source.
-        [alarmsList removeObjectAtIndex:indexPath.row];
+        // delete from the data source.
+        Alarm *deletedAlarm = [alarmsList objectAtIndex:indexPath.row];
+        
+        // deschedule any alarms
+        [deletedAlarm turnOff];
+        [alarmsList removeObject:deletedAlarm];
+        
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
@@ -171,9 +177,6 @@
 
 - (void)saveFromAlarmDetailViewController:(id)sender{
 
-    // update alarm
-// no longer necessary
-//    [alarmDetailViewController saveAlarmSettings];
     [modifiedAlarm turnOn];
     
     if(self.originalAlarm) {
@@ -187,7 +190,7 @@
               usingComparator:^(Alarm * alarm1, Alarm * alarm2){
                   return [alarm1 compare:alarm2];
               }];
-    NSLog(@"New Index:%d", newIndex);
+    NSLog(@"[Inserting] (index, count):(%d, %d)", newIndex, [alarmsList count]);
     [alarmsList insertObject:modifiedAlarm atIndex:newIndex];
     
     [self.tableView reloadData];
@@ -208,6 +211,9 @@
     // make sure it doesn't exist
     self.originalAlarm = nil;
     self.modifiedAlarm = [[Alarm alloc] init];
+    
+    // CHANGE AFTER TESTING
+    modifiedAlarm.date = [modifiedAlarm.date dateByAddingTimeInterval:60];
 
     // inject it into the controller
     alarmDetailViewController.currentAlarm = modifiedAlarm;
@@ -223,6 +229,9 @@
     if([super isEditing])
         [super setEditing:NO animated:YES];
 
+    // remove any scheduled alarms
+    [selectedAlarm turnOff];
+    
     // hold onto it for later
     self.originalAlarm = selectedAlarm;
 
@@ -264,7 +273,7 @@
             NSLog(@"Scheduled: %@", [[UIApplication sharedApplication] scheduledLocalNotifications]);
     }
     
-    //    [(Panda_AlarmAppDelegate *)[[UIApplication sharedApplication] delegate] startGame];
+    [(Panda_AlarmAppDelegate *)[[UIApplication sharedApplication] delegate] startGame];
     [super setEditing:editing animated:animated];
 }
 

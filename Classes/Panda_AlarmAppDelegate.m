@@ -24,8 +24,10 @@
     NSString *archivePath = [NSTemporaryDirectory() stringByAppendingPathComponent:@"AlarmList.archive"];
     alarmsList = [NSKeyedUnarchiver unarchiveObjectWithFile:archivePath];
     
-    // remove when done testing
+    // CHANGE AFTER TESTING
     alarmsList = nil;
+    [application cancelAllLocalNotifications];
+
     
     // no saved settings
     if(alarmsList == nil) {
@@ -44,7 +46,7 @@
     UILocalNotification *notif = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if(notif != nil){
         NSLog(@"App opened by Notifciation in DidFinishLaunching");
-        [self turnOffAlarmWithId: [notif.userInfo objectForKey:@"Id"]];
+        [self turnOffAlarmWithId: [notif.userInfo objectForKey:@"Id"] notification:notif ];
         [self startGame];
     }
     
@@ -70,6 +72,19 @@
     [alertView show];
 }
 
+- (void)startDotGame {
+    UIViewController *gameViewController;
+    
+    gameViewController = [[GameViewController alloc] init];
+    
+    UIViewController *topViewController = [navigationController topViewController];
+    NSLog(@"top view controller before: %@", [topViewController class]);
+    [navigationController pushViewController:gameViewController animated:NO];
+    
+    topViewController = [navigationController topViewController];
+    NSLog(@"top view controller after: %@", [topViewController class]);
+
+}
 - (void)startGame{
     UIViewController *gameViewController;
     
@@ -88,7 +103,7 @@
 
 }
 
-- (void)turnOffAlarmWithId:(NSString*)alarmId{
+- (void)turnOffAlarmWithId:(NSString*)alarmId notification:(UILocalNotification *) notif {
     Alarm *firingAlarm;
     for (Alarm *alarm in alarmsList) {
         if([alarm.alarmId isEqualToString:alarmId]){
@@ -96,18 +111,23 @@
             break;
         }
     }
-    [firingAlarm turnOff];
+    [firingAlarm turnOffNotification:notif];
+}
+
+- (void)refreshAlarmsList {
+    for (Alarm *alarm in alarmsList) {
+        [alarm refreshScheduledNotifications];
+    }
 }
 
 // Handle the notificaton when the app is running
 - (void)application:(UIApplication *)app didReceiveLocalNotification:(UILocalNotification *)notif {
     NSLog(@"Did Receive Local Notification %@",notif);
     NSLog(@"Class of top view controller %@", [[navigationController topViewController] class]);
-    NSLog(@"Notifications before: %d", [[[UIApplication sharedApplication] scheduledLocalNotifications] count]);
-    [[UIApplication sharedApplication] cancelLocalNotification:notif];
+    NSLog(@"Notifications before: %d", [[[UIApplication sharedApplication] scheduledLocalNotifications] count]);    
     
+    [self turnOffAlarmWithId: [notif.userInfo objectForKey:@"Id"] notification:notif];
     
-    [self turnOffAlarmWithId: [notif.userInfo objectForKey:@"Id"]];
     NSLog(@"Notifications after: %d", [[[UIApplication sharedApplication] scheduledLocalNotifications] count]);
     
     // ignore if already playing a game
@@ -139,6 +159,7 @@
 }
 - (void)applicationWillEnterForeground:(UIApplication *)application{
     NSLog(@"Will enter Foreground");
+    [self refreshAlarmsList];
 }
 
 

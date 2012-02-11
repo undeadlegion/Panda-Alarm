@@ -65,6 +65,11 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -139,6 +144,7 @@
 
 - (IBAction)textTyped:(id)sender{
     if([textField.text isEqualToString:alphaNumericLabel.text]){
+        // CHANGE AFTER TESTING
         if (level == 3) {
             [self endGame];
         }

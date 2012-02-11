@@ -10,17 +10,17 @@
 
 @implementation Alarm
 @synthesize on, snoozeOn, reminderOn, pandaOn;
-@synthesize numberOfAlarms, repeatInterval;
+@synthesize extraAlarms, repeatInterval;
 @synthesize name, sound, date;
 @synthesize selectedDaysOfTheWeek, daysOfTheWeek;
-@synthesize notification, alarmId;
+@synthesize scheduledNotifications, alarmId;
 
 #pragma mark -
 #pragma mark Initialization
 
 - (void)initSelectedDaysOfTheWeek{
     selectedDaysOfTheWeek = [[NSMutableDictionary alloc] init];
-    [selectedDaysOfTheWeek setObject:[NSNumber numberWithBool:YES] forKey:@"Mon"];
+    [selectedDaysOfTheWeek setObject:[NSNumber numberWithBool:NO] forKey:@"Mon"];
     [selectedDaysOfTheWeek setObject:[NSNumber numberWithBool:NO] forKey:@"Tue"];
     [selectedDaysOfTheWeek setObject:[NSNumber numberWithBool:NO] forKey:@"Wed"];
     [selectedDaysOfTheWeek setObject:[NSNumber numberWithBool:NO] forKey:@"Thu"];
@@ -36,7 +36,7 @@
     reminderOn = NO;
     pandaOn = NO;
     
-    numberOfAlarms = 1;
+    extraAlarms = 0;
     repeatInterval = 1;
     
     name = @"Alarm";
@@ -47,7 +47,7 @@
     [self initSelectedDaysOfTheWeek];
     daysOfTheWeek = [[NSArray alloc] 
                      initWithObjects:@"Mon",@"Tue",@"Wed",@"Thu",@"Fri",@"Sat",@"Sun", nil];
-
+    scheduledNotifications = [[NSMutableArray alloc] init];
 	return self;
 }
 
@@ -65,6 +65,9 @@
     }
     
     //check for special cases (weekends, everyday...)
+    if ([string isEqualToString:@""])
+        [string setString:@"Never"];
+    
     if([string isEqualToString:@"Mon Tue Wed Thu Fri "])
         [string setString:@"Weekdays"];
     
@@ -78,7 +81,7 @@
 }
 
 // extract hours and minutes from date and combine with today's date
-- (void)setDate{
+- (void)updateDateYMD{
     NSCalendar *calendar = [NSCalendar currentCalendar];
     unsigned unitFlagsHM = NSHourCalendarUnit|NSMinuteCalendarUnit;
     unsigned unitFlagsYMD = NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit;
@@ -90,82 +93,80 @@
     [alarmHM setYear:[todayYMD year]];
     [alarmHM setMonth:[todayYMD month]];
     [alarmHM setDay:[todayYMD day]];
+    [alarmHM setSecond:0];
     
     self.date = [calendar dateFromComponents:alarmHM];
 }
 
-- (void)scheduleNotification {
+- (void)scheduleNotifications {
     NSLog(@"[Scheduling Alarm]");
-    notification = [[UILocalNotification alloc] init];
     
-    if (notification == nil)
-        return;
+    // when alarm was set on a previous date
+    [self updateDateYMD];
     
-    notification.fireDate = self.date;
-    NSDate *today = [NSDate date];
-    
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    unsigned unitFlags = NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit;
-    NSDateComponents *todayYMDComps = [calendar components:unitFlags fromDate:today];
-    NSDateComponents *alarmYMDComps = [calendar components:unitFlags fromDate:self.date];
-    NSDate *todayYMD = [calendar dateFromComponents:todayYMDComps];
-    NSDate *alarmYMD = [calendar dateFromComponents:alarmYMDComps];
-    
-    NSLog(@"Original:    %@", self.date);
-    
-    // if alarm was not set today, update the YMD
-    if (![todayYMD isEqualToDate:alarmYMD]) {
-        [self setDate];
-        NSLog(@"Reset Day: %@", self.date);
-    }
-    
-    //if date has already passed increment one day
-    if([self.date compare:today] == NSOrderedAscending){
+    // if time has already passed increment one day
+    if([self.date compare:[NSDate date]] == NSOrderedAscending){
             self.date = [self.date dateByAddingTimeInterval:24*3600];
-            NSLog(@"Incremented: %@", self.date);
+            NSLog(@"Incremented To: %@", self.date);
     }
 
     // schedule all the alarms
-    for (int i =  0; i < numberOfAlarms; i++) {
+    for (int i =  0; i <= extraAlarms; i++) {
+        UILocalNotification *notification = [[UILocalNotification alloc] init];
+        
         notification.fireDate = [self.date dateByAddingTimeInterval:(60*repeatInterval*i)];
+        NSLog(@"Scheduled: %@", notification.fireDate);
         notification.timeZone = [NSTimeZone defaultTimeZone];
         
         notification.alertBody = [NSString stringWithFormat:@"Wake up!!!"];
         notification.alertAction = @"View";
-        
-        // alarm has to be archived in notification
-        //    NSData *serialzedAlarm = [NSKeyedArchiver archivedDataWithRootObject:self];    
+           
         NSDictionary *infoDict = [NSDictionary 
                                   dictionaryWithObject:alarmId forKey:@"Id"];
         notification.userInfo = infoDict;
         notification.soundName = @"sound.aiff";
-        notification.repeatInterval = NSMinuteCalendarUnit;
         
+        [scheduledNotifications addObject:notification];
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-        //    notification.soundName = UILocalNotificationDefaultSoundName;
-        //    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
     }
+
 }
 
-- (void)descheduleNotification {
-    NSLog(@"Descheduling");
-    if(notification == nil)
-        return;
-    if([notification.fireDate compare:[NSDate date]] == NSOrderedDescending){
-        [[UIApplication sharedApplication] cancelLocalNotification:notification];
-        NSLog(@"Cancelled Alarm");
-    }
-    notification = nil;
-}
-
-- (void)turnOn{
+- (void)turnOn {
     self.on = YES;
-    [self scheduleNotification];
+    [self scheduleNotifications];    
 }
 
-- (void)turnOff{
+- (void)turnOff {
     self.on = NO;
-    [self descheduleNotification];
+    for (UILocalNotification *notif in scheduledNotifications) {
+        [[UIApplication sharedApplication] cancelLocalNotification:notif];
+    }
+    [scheduledNotifications removeAllObjects];
+//    NSLog(@"Deleting saved notification");
+//    NSLog(@"Saved Scheduled notifications before: %@", scheduledNotifications);
+//    NSLog(@"Notifications before: %d", [[[UIApplication sharedApplication] scheduledLocalNotifications] count]);    
+//    NSLog(@"Saved Scheduled notifications after: %@", scheduledNotifications);    
+}
+
+- (void)turnOffNotification: (UILocalNotification *)notif {
+
+    NSLog(@"System Notifications before: %d", [[[UIApplication sharedApplication] scheduledLocalNotifications] count]);    
+    NSLog(@"Scheduled Notifications Before:%d", [scheduledNotifications count]);
+
+    // notif is not the same object as in the array, so remove the notification with the same date
+    NSUInteger index = [scheduledNotifications indexOfObjectPassingTest: ^(UILocalNotification *scheduledNotif, NSUInteger index, BOOL *STOP) {
+                            return [notif.fireDate isEqualToDate:scheduledNotif.fireDate]; 
+                        }];
+    [scheduledNotifications removeObjectAtIndex:index];
+    [[UIApplication sharedApplication] cancelLocalNotification:notif];
+    
+    NSLog(@"System Notifications after: %d", [[[UIApplication sharedApplication] scheduledLocalNotifications] count]); 
+    NSLog(@"Scheduled Notifications After:%d", [scheduledNotifications count]);
+
+    if ([scheduledNotifications count] == 0) {
+        self.on = NO;
+    }
 }
 
 - (NSComparisonResult)compare:(Alarm *)other {
@@ -180,6 +181,19 @@
     return [selfHMDate compare:otherHMDate];
 }
 
+- (void)refreshScheduledNotifications {
+    NSDate *today = [NSDate date];
+
+    
+    NSIndexSet *indexSet = [scheduledNotifications indexesOfObjectsPassingTest:^(UILocalNotification *notif, NSUInteger idx, BOOL *stop) {
+        if ([today compare:notif.fireDate] == NSOrderedDescending) {
+            return YES;
+        }
+        return NO;
+    }];
+    [scheduledNotifications removeObjectsAtIndexes:indexSet];
+}
+
 #pragma mark -
 #pragma mark NSCoding protocol
 
@@ -191,7 +205,7 @@
         reminderOn = [aDecoder decodeBoolForKey:@"Reminder"];
         pandaOn = [aDecoder decodeBoolForKey:@"Panda"];
         
-        numberOfAlarms = [aDecoder decodeIntegerForKey:@"Number Of Alarms"];
+        extraAlarms = [aDecoder decodeIntegerForKey:@"Extra Alarms"];
         repeatInterval = [aDecoder decodeIntegerForKey:@"Repeat Interval"];
 
         name = [aDecoder decodeObjectForKey:@"Name"];
@@ -200,7 +214,8 @@
     
         selectedDaysOfTheWeek = [aDecoder decodeObjectForKey:@"Selected Days"];
         daysOfTheWeek = [aDecoder decodeObjectForKey:@"Days of the Week"];
-        notification = [aDecoder decodeObjectForKey:@"Notification"];
+        
+        scheduledNotifications = [aDecoder decodeObjectForKey:@"Notifications"];
         alarmId = [aDecoder decodeObjectForKey:@"Id"];
     }
     return self;
@@ -214,7 +229,7 @@
     [aCoder encodeBool:reminderOn forKey:@"Reminder"];
     [aCoder encodeBool:pandaOn forKey:@"Panda"];
     
-    [aCoder encodeInteger:numberOfAlarms forKey:@"Number of Alarms"];
+    [aCoder encodeInteger:extraAlarms forKey:@"Extra Alarms"];
     [aCoder encodeInteger:repeatInterval forKey:@"Repeat Interval"];
     
     [aCoder encodeObject:name forKey:@"Name"];
@@ -224,7 +239,7 @@
     [aCoder encodeObject:selectedDaysOfTheWeek forKey:@"Seleced Days"];
     [aCoder encodeObject:daysOfTheWeek forKey:@"Days of the Week"];
 
-    [aCoder encodeObject:notification forKey:@"Notification"];
+    [aCoder encodeObject:scheduledNotifications forKey:@"Notifications"];
     [aCoder encodeObject:alarmId forKey:@"Id"];
 }
 
@@ -240,37 +255,18 @@
     alarmCopy.reminderOn = reminderOn;
     alarmCopy.pandaOn = pandaOn;
     
-    alarmCopy.numberOfAlarms = numberOfAlarms;
+    alarmCopy.extraAlarms = extraAlarms;
     alarmCopy.repeatInterval = repeatInterval;
     
     alarmCopy.name = name;
     alarmCopy.sound = sound;
-    alarmCopy.date = [date copy];
+    alarmCopy.date = date;
     
     alarmCopy.selectedDaysOfTheWeek = [selectedDaysOfTheWeek mutableCopy];
-    alarmCopy.daysOfTheWeek = daysOfTheWeek;
+    alarmCopy.daysOfTheWeek = [daysOfTheWeek copy];
 
-    alarmCopy.notification = notification;
+    alarmCopy.scheduledNotifications = [scheduledNotifications mutableCopy];
     alarmCopy.alarmId = alarmId;
     return alarmCopy;
 }
-
-
-#pragma mark -
-#pragma mark Memory management
-
-
 @end
-
-/*
- id key;
- NSEnumerator *enumerator = [selectedDaysOfTheWeek keyEnumerator];
- while(key = [enumerator nextObject]){
- NSLog(@"key: %@ value: %d", key, [[selectedDaysOfTheWeek valueForKey:key]boolValue]);
- }
- 
- enumerator = [alarmCopy.selectedDaysOfTheWeek keyEnumerator];
- while(key = [enumerator nextObject]){
- NSLog(@"copy key: %@ value: %d", key, [[selectedDaysOfTheWeek valueForKey:key]boolValue]);
- }
- */

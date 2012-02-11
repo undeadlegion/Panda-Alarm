@@ -15,11 +15,10 @@
 // sliders
 @property (nonatomic, strong) UISlider *repeatIntervalSlider;
 @property (nonatomic, strong) UILabel *repeatIntervalLabel;
-@property (nonatomic, strong) UISlider *numberOfAlarmsSlider;
+@property (nonatomic, strong) UISlider *extraAlarmsSlider;
 @property (nonatomic, strong) UILabel *numberOfAlarmsLabel;
 
 @property (nonatomic, strong) IBOutlet UITableView *myTableView;
-//@property (nonatomic, strong) IBOutlet UIDatePicker *datePicker;
 @property (nonatomic, strong) Alarm *currentAlarm;
 
 //cells
@@ -45,7 +44,6 @@
 - (id)init;
 - (void)initCells;
 - (void)updateViewWithCurrentAlarm;
-- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context;
 
 @end
     
