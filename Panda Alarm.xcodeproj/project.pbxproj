@@ -14,27 +14,20 @@
 		7D6295F9120DB47000C7C17F /* AlarmDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6295F7120DB47000C7C17F /* AlarmDetailViewController.m */; };
 		7D6295FA120DB47000C7C17F /* AlarmDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D6295F8120DB47000C7C17F /* AlarmDetailViewController.xib */; };
 		7D6A060012D9D10900B5519E /* sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 7D6A05FE12D9D0B300B5519E /* sound.caf */; };
-		7D72E53812D8B69C0032DA66 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D72E53712D8B69C0032DA66 /* GameView.m */; };
-		7D86D664130DAF0000F0249A /* StringGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D86D662130DAEFF00F0249A /* StringGameViewController.m */; };
-		7D86D665130DAF0000F0249A /* StringGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D86D663130DAEFF00F0249A /* StringGameViewController.xib */; };
 		7D951E4A12DA787200354CCD /* sound.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 7D951E4912DA787200354CCD /* sound.aiff */; };
 		7DA017D7120A80F100AA1FCA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA017D6120A80F100AA1FCA /* UIKit.framework */; };
 		7DA017D9120A80F100AA1FCA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA017D8120A80F100AA1FCA /* Foundation.framework */; };
 		7DA017DB120A80F100AA1FCA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DA017DA120A80F100AA1FCA /* CoreGraphics.framework */; };
-		7DA017E2120A80F100AA1FCA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA017E1120A80F100AA1FCA /* main.m */; };
 		7DA017E5120A80F100AA1FCA /* Panda_AlarmAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA017E4120A80F100AA1FCA /* Panda_AlarmAppDelegate.m */; };
 		7DA017EB120A80F100AA1FCA /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA017EA120A80F100AA1FCA /* RootViewController.m */; };
 		7DB8567C13108DA800983307 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB8567B13108DA800983307 /* AVFoundation.framework */; };
 		7DC527C2131F6C9F006A9DD1 /* panda.png in Resources */ = {isa = PBXBuildFile; fileRef = 7DDFF085131F59270021E79C /* panda.png */; };
-		7DCA419E12D854C500DA9EE4 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DCA419C12D854C500DA9EE4 /* GameViewController.m */; };
-		7DCA419F12D854C500DA9EE4 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DCA419D12D854C500DA9EE4 /* GameViewController.xib */; };
 		7DD1FF3D121BF5D10032C7E1 /* NameDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1FF3B121BF5D10032C7E1 /* NameDetailViewController.m */; };
 		7DD1FF3E121BF5D10032C7E1 /* NameDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DD1FF3C121BF5D10032C7E1 /* NameDetailViewController.xib */; };
 		7DD36406120EBA2A008EF32A /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DD36405120EBA2A008EF32A /* MainWindow.xib */; };
 		7DD36409120EBA32008EF32A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7DD36407120EBA32008EF32A /* InfoPlist.strings */; };
 		7DD3640A120EBA32008EF32A /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DD36408120EBA32008EF32A /* RootViewController.xib */; };
 		7DF913FA1210788D002C5C9C /* RepeatDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF913F91210788D002C5C9C /* RepeatDetailViewController.m */; };
-		9C58A7A5146628EB00576884 /* IntervalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C58A7A4146628EB00576884 /* IntervalCell.xib */; };
 		9C92498014E706FD00526DE5 /* GameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C92497514E706FD00526DE5 /* GameView.m */; };
 		9C92498114E706FD00526DE5 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C92497714E706FD00526DE5 /* GameViewController.m */; };
 		9C92498214E706FD00526DE5 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C92497814E706FD00526DE5 /* GameViewController.xib */; };
@@ -59,30 +52,18 @@
 		7D6295F7120DB47000C7C17F /* AlarmDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmDetailViewController.m; sourceTree = "<group>"; };
 		7D6295F8120DB47000C7C17F /* AlarmDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AlarmDetailViewController.xib; path = Classes/AlarmDetailViewController.xib; sourceTree = "<group>"; };
 		7D6A05FE12D9D0B300B5519E /* sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = sound.caf; path = Classes/sound.caf; sourceTree = "<group>"; };
-		7D6A76B1121B96D5001CE7B3 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
 		7D6A76D2121B9887001CE7B3 /* Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tests.h; sourceTree = "<group>"; };
 		7D6A76D3121B9887001CE7B3 /* Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
-		7D72E53612D8B69C0032DA66 /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameView.h; path = ../GameView.h; sourceTree = "<group>"; };
-		7D72E53712D8B69C0032DA66 /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameView.m; path = ../GameView.m; sourceTree = "<group>"; };
-		7D86D661130DAEFF00F0249A /* StringGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StringGameViewController.h; path = ../StringGameViewController.h; sourceTree = "<group>"; };
-		7D86D662130DAEFF00F0249A /* StringGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StringGameViewController.m; path = ../StringGameViewController.m; sourceTree = "<group>"; };
-		7D86D663130DAEFF00F0249A /* StringGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StringGameViewController.xib; sourceTree = "<group>"; };
 		7D951E4912DA787200354CCD /* sound.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; name = sound.aiff; path = Classes/sound.aiff; sourceTree = "<group>"; };
 		7DA017D3120A80F100AA1FCA /* Panda Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Panda Alarm.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DA017D6120A80F100AA1FCA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7DA017D8120A80F100AA1FCA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7DA017DA120A80F100AA1FCA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		7DA017DC120A80F100AA1FCA /* Panda_Alarm-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Panda_Alarm-Info.plist"; sourceTree = "<group>"; };
-		7DA017DD120A80F100AA1FCA /* Panda_Alarm_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Panda_Alarm_Prefix.pch; sourceTree = "<group>"; };
-		7DA017E1120A80F100AA1FCA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7DA017E3120A80F100AA1FCA /* Panda_AlarmAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Panda_AlarmAppDelegate.h; sourceTree = "<group>"; };
 		7DA017E4120A80F100AA1FCA /* Panda_AlarmAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Panda_AlarmAppDelegate.m; sourceTree = "<group>"; };
 		7DA017E9120A80F100AA1FCA /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		7DA017EA120A80F100AA1FCA /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		7DB8567B13108DA800983307 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		7DCA419B12D854C500DA9EE4 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameViewController.h; path = ../GameViewController.h; sourceTree = "<group>"; };
-		7DCA419C12D854C500DA9EE4 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameViewController.m; path = ../GameViewController.m; sourceTree = "<group>"; };
-		7DCA419D12D854C500DA9EE4 /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
 		7DD1FF3A121BF5D10032C7E1 /* NameDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameDetailViewController.h; sourceTree = "<group>"; };
 		7DD1FF3B121BF5D10032C7E1 /* NameDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameDetailViewController.m; sourceTree = "<group>"; };
 		7DD1FF3C121BF5D10032C7E1 /* NameDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NameDetailViewController.xib; path = Classes/NameDetailViewController.xib; sourceTree = "<group>"; };
@@ -90,10 +71,8 @@
 		7DD36407120EBA32008EF32A /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = Classes/InfoPlist.strings; sourceTree = "<group>"; };
 		7DD36408120EBA32008EF32A /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RootViewController.xib; path = Classes/RootViewController.xib; sourceTree = "<group>"; };
 		7DDFF085131F59270021E79C /* panda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panda.png; sourceTree = "<group>"; };
-		7DF8C2B11219BCC000292DFE /* Panda Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Panda Test-Info.plist"; sourceTree = "<group>"; };
 		7DF913F81210788D002C5C9C /* RepeatDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepeatDetailViewController.h; sourceTree = "<group>"; };
 		7DF913F91210788D002C5C9C /* RepeatDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepeatDetailViewController.m; sourceTree = "<group>"; };
-		9C58A7A4146628EB00576884 /* IntervalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntervalCell.xib; sourceTree = "<group>"; };
 		9C92497414E706FD00526DE5 /* GameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameView.h; sourceTree = "<group>"; };
 		9C92497514E706FD00526DE5 /* GameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameView.m; sourceTree = "<group>"; };
 		9C92497614E706FD00526DE5 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
@@ -151,8 +130,6 @@
 				7DA017D4120A80F100AA1FCA /* Products */,
 				9C92498914E7074500526DE5 /* Panda Test-Info.plist */,
 				9C92498A14E7074500526DE5 /* Unit Tests-Info.plist */,
-				7DF8C2B11219BCC000292DFE /* Panda Test-Info.plist */,
-				7D6A76B1121B96D5001CE7B3 /* Unit Tests-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,18 +150,12 @@
 				7DF913F91210788D002C5C9C /* RepeatDetailViewController.m */,
 				7DD1FF3A121BF5D10032C7E1 /* NameDetailViewController.h */,
 				7DD1FF3B121BF5D10032C7E1 /* NameDetailViewController.m */,
-				7DCA419B12D854C500DA9EE4 /* GameViewController.h */,
 				9C92497414E706FD00526DE5 /* GameView.h */,
 				9C92497514E706FD00526DE5 /* GameView.m */,
 				9C92497614E706FD00526DE5 /* GameViewController.h */,
 				9C92497714E706FD00526DE5 /* GameViewController.m */,
 				9C92497D14E706FD00526DE5 /* StringGameViewController.h */,
 				9C92497E14E706FD00526DE5 /* StringGameViewController.m */,
-				7DCA419C12D854C500DA9EE4 /* GameViewController.m */,
-				7D72E53612D8B69C0032DA66 /* GameView.h */,
-				7D72E53712D8B69C0032DA66 /* GameView.m */,
-				7D86D661130DAEFF00F0249A /* StringGameViewController.h */,
-				7D86D662130DAEFF00F0249A /* StringGameViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -194,8 +165,6 @@
 			children = (
 				9C92497B14E706FD00526DE5 /* Panda_Alarm_Prefix.pch */,
 				9C92497A14E706FD00526DE5 /* main.m */,
-				7DA017DD120A80F100AA1FCA /* Panda_Alarm_Prefix.pch */,
-				7DA017E1120A80F100AA1FCA /* main.m */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -207,11 +176,9 @@
 				7D6A05FE12D9D0B300B5519E /* sound.caf */,
 				7DD36407120EBA32008EF32A /* InfoPlist.strings */,
 				9C92497C14E706FD00526DE5 /* Panda_Alarm-Info.plist */,
-				7DA017DC120A80F100AA1FCA /* Panda_Alarm-Info.plist */,
 				7DDFF085131F59270021E79C /* panda.png */,
 				7DD36405120EBA2A008EF32A /* MainWindow.xib */,
 				7DD36408120EBA32008EF32A /* RootViewController.xib */,
-				9C58A7A4146628EB00576884 /* IntervalCell.xib */,
 				7D6295DE120D4D7B00C7C17F /* AlarmsListCell.xib */,
 				9C997A6F1466958400E13B4A /* DatePickerViewController.xib */,
 				7D6295F8120DB47000C7C17F /* AlarmDetailViewController.xib */,
@@ -219,8 +186,6 @@
 				9C92497814E706FD00526DE5 /* GameViewController.xib */,
 				9C92497914E706FD00526DE5 /* IntervalCell.xib */,
 				9C92497F14E706FD00526DE5 /* StringGameViewController.xib */,
-				7DCA419D12D854C500DA9EE4 /* GameViewController.xib */,
-				7D86D663130DAEFF00F0249A /* StringGameViewController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -303,11 +268,8 @@
 				7DD36409120EBA32008EF32A /* InfoPlist.strings in Resources */,
 				7DD3640A120EBA32008EF32A /* RootViewController.xib in Resources */,
 				7DD1FF3E121BF5D10032C7E1 /* NameDetailViewController.xib in Resources */,
-				7DCA419F12D854C500DA9EE4 /* GameViewController.xib in Resources */,
 				7D951E4A12DA787200354CCD /* sound.aiff in Resources */,
-				7D86D665130DAF0000F0249A /* StringGameViewController.xib in Resources */,
 				7DC527C2131F6C9F006A9DD1 /* panda.png in Resources */,
-				9C58A7A5146628EB00576884 /* IntervalCell.xib in Resources */,
 				9C997A711466958400E13B4A /* DatePickerViewController.xib in Resources */,
 				9C92498214E706FD00526DE5 /* GameViewController.xib in Resources */,
 				9C92498314E706FD00526DE5 /* IntervalCell.xib in Resources */,
@@ -325,16 +287,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DA017E2120A80F100AA1FCA /* main.m in Sources */,
 				7DA017E5120A80F100AA1FCA /* Panda_AlarmAppDelegate.m in Sources */,
 				7DA017EB120A80F100AA1FCA /* RootViewController.m in Sources */,
 				7D078593120BAAAE008C6269 /* Alarm.m in Sources */,
 				7D6295F9120DB47000C7C17F /* AlarmDetailViewController.m in Sources */,
 				7DF913FA1210788D002C5C9C /* RepeatDetailViewController.m in Sources */,
 				7DD1FF3D121BF5D10032C7E1 /* NameDetailViewController.m in Sources */,
-				7DCA419E12D854C500DA9EE4 /* GameViewController.m in Sources */,
-				7D72E53812D8B69C0032DA66 /* GameView.m in Sources */,
-				7D86D664130DAF0000F0249A /* StringGameViewController.m in Sources */,
 				9C997A701466958400E13B4A /* DatePickerViewController.m in Sources */,
 				9C92498014E706FD00526DE5 /* GameView.m in Sources */,
 				9C92498114E706FD00526DE5 /* GameViewController.m in Sources */,
